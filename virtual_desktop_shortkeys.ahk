@@ -1,3 +1,5 @@
+; This is an AutoHotkey script.
+
 #RButton::
 Send #{TAB}
 return
