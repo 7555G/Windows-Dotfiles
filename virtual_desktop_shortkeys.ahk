@@ -1,5 +1,7 @@
 ; This is an AutoHotkey script.
 
+#NoTrayIcon
+
 #RButton::
 Send #{TAB}
 return
