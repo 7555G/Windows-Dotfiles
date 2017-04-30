@@ -2,6 +2,35 @@
 
 #NoTrayIcon
 
+; Invert scrolling
+
+WheelUp::
+Send {WheelDown}
+Return
+
+WheelDown::
+Send {WheelUp}
+Return
+
+; Shift + Wheel for horizontal scrolling
+
++WheelDown::
+Send {WheelLeft}
+Return
+
++WheelUp::
+Send {WheelRight}
+Return
+
+;; Task View Shortcuts
+;; (Must first set Computer>HKEY_USERS>.DEFAULT>Control Panel>Keyboard>InitialKeyboardInd    icators to 2)
+;; or uncomment next line
+;; SetNumLockState, AlwaysOn ;Forces the key to stay on permanently (has no effect on Win    dows 9x)
+;
+; Numpad5::
+; Send {LWin Down}{Tab}{LWin Up}
+; Return
+
 #RButton::
 Send #{TAB}
 return
