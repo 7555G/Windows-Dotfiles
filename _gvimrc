@@ -40,9 +40,9 @@ let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_TreatMacViewerAsUNIX = 1
 let g:Tex_ExecuteUNIXViewerInForeground = 1
-let g:Tex_ViewRule_ps = 'C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
-let g:Tex_ViewRule_pdf = 'C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
-let g:Tex_ViewRule_dvi = 'C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
+let g:Tex_ViewRule_ps = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
+let g:Tex_ViewRule_pdf = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
+let g:Tex_ViewRule_dvi = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
 
 " Windows only
 set guifont=Menlo:h11:cDEFAULT
