@@ -1,0 +1,49 @@
+"
+" $VIM\_gvimrc
+"
+
+filetype plugin indent on
+
+" no swap files
+set noswapfile
+set nobackup
+set nowb
+
+" allow use of backspace in instert mode
+set backspace=indent,eol,start
+set t_Co=256
+colorscheme hybrid
+
+set number
+set showmatch " show matching parentheses
+syntax on
+
+set sw=4 ts=4 sts=4 " default: 4 spaces per tab
+set expandtab
+
+set autoindent
+
+set smartcase
+set hlsearch
+
+set wrap lbr  " wrap lines by word
+" fix up down movement in wrapped lines
+noremap  <buffer> <silent> k gk
+noremap  <buffer> <silent> j gj
+noremap  <buffer> <silent> 0 g0
+noremap  <buffer> <silent> $ g$
+noremap  <buffer> <silent> <up> g<up>
+noremap  <buffer> <silent> <down> g<down>
+
+" LaTeX
+let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
+
+" Windows only
+set guifont=Menlo:h11:cDEFAULT
+
+set guioptions-=m " hide menu bar
+set guioptions-=T " hide tool bar
+set guioptions-=r " hide scroll bar
+
+set enc=utf8
