@@ -38,12 +38,16 @@ noremap  <buffer> <silent> <down> g<down>
 " LaTeX
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_TreatMacViewerAsUNIX = 1
+let g:Tex_ExecuteUNIXViewerInForeground = 1
+let g:Tex_ViewRule_ps = 'C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
+let g:Tex_ViewRule_pdf = 'C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
+let g:Tex_ViewRule_dvi = 'C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe'
 
 " Windows only
 set guifont=Menlo:h11:cDEFAULT
+set enc=utf8
 
 set guioptions-=m " hide menu bar
 set guioptions-=T " hide tool bar
 set guioptions-=r " hide scroll bar
-
-set enc=utf8
