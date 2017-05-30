@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[greek,english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{appendix}
+
+%% Διαστάσεις
+\textheight=672pt % 592pt + 80pt
+\voffset=-40pt    % -80/2pt
+\textwidth=470pt  % 390pt+80pt
+\hoffset=-40pt    % -80/2pt
+
+%% Γλώσσες
+\newcommand{\en}{\selectlanguage{english}}
+\newcommand{\gr}{\selectlanguage{greek}}
+
+\begin{document}
+
+%% Εξώφυλλο
+\begin{titlepage}
+\gr
+\centering
+Σχολή\\
+Τμήμα\\
+\today
+\vfill
+\vfill
+{\huge Τίτλος\par}
+{\Large Μάθημα\par}
+\vfill
+Ον/επώνυμο\\
+Αρ. μητρώου\\
+Ομάδα
+\vfill
+\vfill
+\end{titlepage}
+
+%% Κείμενο
+\pagenumbering{arabic}
+\section{\gr Ερώτση.}
+\gr Απάντηση.
+
+%% Παράρτημα
+%\newpage
+%\newcommand{\appendixpagenumbering}{
+%    \pagenumbering{arabic}
+%    \renewcommand{\thepage}{\thesection-\arabic{page}}
+%}
+%\begin{appendices}
+%\renewcommand\thesection{\Alph{section}}
+%\section{\en some appendix}
+%\appendixpagenumbering
+%\newpage
+%\section{\gr παράρτημα}
+%\appendixpagenumbering
+%\newpage
+%\end{appendices}
+
+%% Βιβλιογραφία
+%\pagenumbering{gobble}
+%\gr
+%\begin{thebibliography}{1}
+%\bitem{}
+%\end{thebibliography}
+
+%% Σχήμα
+%\begin{figure}[hbt]
+%    \centering
+%    \includegraphics[width=5cm]{example-image-b}
+%    \caption{le image}
+%\end{figure}
+\end{document}
