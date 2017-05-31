@@ -47,8 +47,10 @@
 \gr Απάντηση.
 
 %% Παράρτημα
-%\newpage
-%\newcommand{\appendixpagenumbering}{
+%\clearpage
+%\renewcommand\thefigure{\thesection.\arabic{figure}} % change figure %
+%\setcounter{figure}{0}                               % numbering     %
+%\newcommand{\appendixpagenumbering}{ % change page numbering
 %    \pagenumbering{arabic}
 %    \renewcommand{\thepage}{\thesection-\arabic{page}}
 %}
@@ -56,10 +58,10 @@
 %\renewcommand\thesection{\Alph{section}}
 %\section{\en some appendix}
 %\appendixpagenumbering
-%\newpage
+%\clearpage
 %\section{\gr παράρτημα}
 %\appendixpagenumbering
-%\newpage
+%\clearpage
 %\end{appendices}
 
 %% Βιβλιογραφία
