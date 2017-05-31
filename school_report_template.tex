@@ -4,6 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{mathtools}
 \usepackage{physics}
+\usepackage{cancel}
 \usepackage{gensymb}
 \usepackage{graphicx,caption}
 \usepackage{longtable}
@@ -48,12 +49,12 @@
 
 %% Παράρτημα
 %\clearpage
-%\renewcommand\thefigure{\thesection.\arabic{figure}} % change figure %
-%\setcounter{figure}{0}                               % numbering     %
-%\newcommand{\appendixpagenumbering}{ % change page numbering
-%    \pagenumbering{arabic}
-%    \renewcommand{\thepage}{\thesection-\arabic{page}}
-%}
+%\renewcommand\thefigure{\thesection.\arabic{figure}} % αρίθμιση
+%\setcounter{figure}{0}                               % εικονών
+%\newcommand{\appendixpagenumbering}{                   % 
+%    \pagenumbering{arabic}                             % θέσιμο για
+%    \renewcommand{\thepage}{\thesection-\arabic{page}} % αρίθμηση σελ.
+%}                                                      %
 %\begin{appendices}
 %\renewcommand\thesection{\Alph{section}}
 %\section{\en some appendix}
@@ -72,25 +73,25 @@
 %\end{thebibliography}
 
 % Σχήμα
-%\begin{figure}[h]
+%\begin{figure}[!htb]
 %    \captionsetup{width=0.8\textwidth}
 %    \centering
 %    \includegraphics[width=0.618\textwidth]{example-image-b}
-%    \caption{\en an image}
+%    \caption{Εικόνα}
 %    \label{fig1:image}
 %\end{figure}
 
 % Πίνακας
-%\begin{longtable}{| c | c | c | c | c |}
+%\begin{longtable}{| c | c | c |}
 %    \captionsetup{width=0.8\textwidth}
 %    \caption{Πίνακας}\label{tab1:table} \\
 %    \hline
-%    Α & Β & Γ & Δ & Ε \\
+%    Α & Β & Γ \\
 %    \hline
 %    \endhead
 %    \hline
 %    \endfoot
-%    1 & 2 & 3 & 4 & 5 \\
-%    1 & 2 & 3 & 4 & 5 \\
+%    1 & 2 & 3 \\
+%    1 & 2 & 3 \\
 %\end{longtable}
 %\end{document}
