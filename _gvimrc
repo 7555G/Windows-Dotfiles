@@ -15,7 +15,6 @@ set t_Co=256
 colorscheme hybrid
 
 set number
-set relativenumber
 set showmatch " show matching parentheses
 syntax on
 
