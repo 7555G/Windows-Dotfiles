@@ -44,11 +44,13 @@
 
 %% Κείμενο
 \pagenumbering{arabic}
-\renewcommand\thesubsection{$($\gr{}\alph{subsection}$)$} % αρίθμιση subsections
-\addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} %'Διαγράμματα'
+\renewcommand\thesubsection{$(${}\alph{subsection}$)$} % αρίθμιση subsections
+\renewcommand{\textdexiakeraia}{} % αφαίρεση του "ʹ" (δεξιά κεραία) 
+\addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} % 'Διαγράμματα'
+\gr{}
 
 \section{\gr{} Ερώτηση.}
-\gr{}
+
 Απάντηση.
 
 %% Παράρτημα
