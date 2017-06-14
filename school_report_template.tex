@@ -25,7 +25,7 @@
 
 %% Εξώφυλλο
 \begin{titlepage}
-\gr
+\gr{}
 \centering
 Σχολή\\
 Τμήμα\\
@@ -44,9 +44,11 @@
 
 %% Κείμενο
 \pagenumbering{arabic}
-\renewcommand\thesubsection{$($\gr\alph{subsection}$)$} % αρίθμιση subsections
-\section{\gr Ερώτηση.}
-\gr Απάντηση.
+\renewcommand\thesubsection{$($\gr{}\alph{subsection}$)$} % αρίθμιση subsections
+\addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} %'Διαγράμματα'
+
+\section{\gr{}Ερώτηση.}
+\gr{}Απάντηση.
 
 %% Παράρτημα
 %\clearpage
@@ -58,10 +60,10 @@
 %}                                                      %
 %\begin{appendices}
 %\renewcommand\thesection{\Alph{section}}
-%\section{\en some appendix}
+%\section{\en{}some appendix}
 %\appendixpagenumbering
 %\clearpage
-%\section{\gr παράρτημα}
+%\section{\gr{}παράρτημα}
 %\appendixpagenumbering
 %\clearpage
 %\end{appendices}
