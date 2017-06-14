@@ -43,13 +43,13 @@
 \end{titlepage}
 
 %% Κείμενο
-\pagenumbering{arabic}
+\pagenumbering{arabic} % αρίθμιση σελιδών
 \renewcommand\thesubsection{$(${}\alph{subsection}$)$} % αρίθμιση subsections
 \renewcommand{\textdexiakeraia}{} % αφαίρεση του "ʹ" (δεξιά κεραία) 
 \addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} % 'Διαγράμματα'
 \gr{}
 
-\section{\gr{} Ερώτηση.}
+\section{Ερώτηση.}
 
 Απάντηση.
 
@@ -57,23 +57,22 @@
 %\clearpage
 %\renewcommand\thefigure{\thesection.\arabic{figure}} % αρίθμιση
 %\setcounter{figure}{0}                               % εικονών
-%\newcommand{\appendixpagenumbering}{                   % 
-%    \pagenumbering{arabic}                             % θέσιμο για
-%    \renewcommand{\thepage}{\thesection-\arabic{page}} % αρίθμηση
+%\newcommand{\appendixpagenumbering}{                   % χρειάζεται
+%    \pagenumbering{arabic}                             % για νέα
+%    \renewcommand{\thepage}{\thesection-\arabic{page}} % αρίθμηση
 %}                                                      % σελιδών
 %\begin{appendices}
 %\renewcommand\thesection{\Alph{section}}
-%\section{\en{}some appendix}
+%\section{Κάποιο Παράρτημα}
 %\appendixpagenumbering  % χρειάζεται σε κάθε καινούριο section
 %\clearpage
-%\section{\gr{}παράρτημα}
+%\section{Κάποιο Άλλο Παράρτημα}
 %\appendixpagenumbering
 %\clearpage
 %\end{appendices}
 
 %% Βιβλιογραφία
-%\pagenumbering{gobble}
-%\gr{}
+%\pagenumbering{gobble} % αφαίρεση αρίθμισης σελιδών
 %\begin{thebibliography}{1}
 %\bibitem{αναφορά}
 %\end{thebibliography}
