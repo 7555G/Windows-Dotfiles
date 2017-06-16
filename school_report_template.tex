@@ -1,11 +1,15 @@
 \documentclass[12pt,a4paper]{article}
+
 \usepackage[greek,english]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+
 \usepackage{mathtools}
 \usepackage{physics}
+\usepackage{siunitx}
 \usepackage{cancel}
 \usepackage{gensymb}
+
 \usepackage{graphicx,caption}
 \usepackage{longtable}
 \usepackage{appendix}
@@ -21,6 +25,10 @@
 %% Γλώσσες
 \newcommand{\en}{\selectlanguage{english}}
 \newcommand{\gr}{\selectlanguage{greek}}
+
+%% Μαθηματικοί τελεστές κ.λ.
+\DeclareMathOperator{\di}{d\!}
+\newcommand*\eval[3]{\left.#1\right\rvert_{#2}^{#3}}
 
 \begin{document}
 
