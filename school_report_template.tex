@@ -5,7 +5,7 @@
 \usepackage[T1]{fontenc}
 
 \usepackage{mathtools}
-\usepackage{physics}
+%\usepackage{physics}
 \usepackage{siunitx}
 \usepackage{cancel}
 \usepackage{gensymb}
@@ -26,10 +26,13 @@
 \newcommand{\en}{\selectlanguage{english}}
 \newcommand{\gr}{\selectlanguage{greek}}
 
-%% Μαθηματικοί τελεστές κ.λ.
-\DeclareMathOperator{\di}{d\!}
-\newcommand*\eval[3]{\left.#1\right\rvert_{#2}^{#3}}
-\newcommand{\pe}{\text{\gr{}p}}
+%% Μαθηματικοί τελεστές κ.α.
+\delimitershortfall-1sp  % οι παρενθέσεις μικραίνουν
+\newcommand*\abs[1]{\left\lvert#1\right\rvert}  % απόλυτο
+\DeclareMathOperator{\di}{d\!}  % ορθό διαφορικό
+\newcommand*\evala[3]{\left.#1\right\rvert_{#2}^{#3}}  % υπολ. ολοκληρώματος |
+\newcommand*\evalb[3]{\left[#1\right]_{#2}^{#3}}  % υπολ. ολοκληρώματος []
+\newcommand{\pe}{\text{\gr{}p}}  % ορθό `π'
 
 \begin{document}
 
