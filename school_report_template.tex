@@ -28,11 +28,13 @@
 
 %% Μαθηματικοί τελεστές κ.α.
 \delimitershortfall-1sp  % οι παρενθέσεις μικραίνουν
-\newcommand*\abs[1]{\left\lvert#1\right\rvert}  % απόλυτο
+\providecommand*{\abs}[1]{\ensuremath{\left\lvert#1\right\rvert}}  % απόλυτο
+\providecommand*{\evala}[3]{\ensuremath{\left.#1\right\rvert_{#2}^{#3}}}  % υπολ. ολοκληρώματος |
+\providecommand*{\evalb}[3]{\ensuremath{\left[#1\right]_{#2}^{#3}}}  % υπολ. ολοκληρώματος []
 \DeclareMathOperator{\di}{d\!}  % ορθό διαφορικό
-\newcommand*\evala[3]{\left.#1\right\rvert_{#2}^{#3}}  % υπολ. ολοκληρώματος |
-\newcommand*\evalb[3]{\left[#1\right]_{#2}^{#3}}  % υπολ. ολοκληρώματος []
-\newcommand{\pe}{\text{\gr{}p}}  % ορθό `π'
+\providecommand*{\pe}{\text{\gr{}p}}  % ορθό `π'
+\providecommand*{\eu}{\ensuremath{\mathrm{e}}}  % ορθό `e'
+\providecommand*{\iu}{\ensuremath{\mathrm{j}}}  % ορθό `j'
 
 \begin{document}
 
@@ -56,9 +58,9 @@
 
 %% Κείμενο
 \pagenumbering{arabic} % αρίθμιση σελιδών
-\renewcommand\thesubsection{$(${}\alph{subsection}$)$} % αρίθμιση subsections
+\renewcommand\thesubsection{$(${}\alph{subsection}$)$} % αλφ. αρίθμιση subsections
 \renewcommand{\textdexiakeraia}{} % αφαίρεση του "ʹ" (δεξιά κεραία) 
-\addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} % 'Διαγράμματα'
+\addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} % ονομασία `Διαγράμματα'
 
 \section{Ερώτηση.}
 
