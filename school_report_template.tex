@@ -28,7 +28,7 @@
 
 %% Μαθηματικοί τελεστές κ.α.
 
-% ορθό διαφορικό %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ορθό διαφορικό %%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \providecommand*{\di}%
     {\@ifnextchar^{\DIfF}{\DIfF^{}}}
@@ -46,7 +46,7 @@
             \ifx\diffarg[%
                 \let\DiffSpace\relax
             \fi\fi\fi\DiffSpace}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % εντολές θεσίματος νέων τελεστών
 \providecommand{\newoperator}[3]{\newcommand*{#1}{\mathop{#2}#3}}
@@ -63,8 +63,8 @@
 \providecommand*{\pu}{\text{\gr{}p}}  % ορθό `π'
 \providecommand*{\eu}{\ensuremath{\mathrm{e}}}  % ορθό `e'
 \providecommand*{\iu}{\ensuremath{\mathrm{j}}}  % ορθό `j'
-\renewoperator{\Re}{\mathrm{Re}}{\nolimits}  % σωστό Re
-\renewoperator{\Im}{\mathrm{Im}}{\nolimits}  % σωστό Im
+\renewoperator{\Re}{\mathrm{Re}}{\nolimits}  % σωστό Re
+\renewoperator{\Im}{\mathrm{Im}}{\nolimits}  % σωστό Im
 
 
 \begin{document}
