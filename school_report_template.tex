@@ -27,19 +27,8 @@
 \newcommand{\gr}{\selectlanguage{greek}}
 
 %% Μαθηματικοί τελεστές κ.α.
-\delimitershortfall-1sp  % οι παρενθέσεις μικραίνουν
-\providecommand*{\abs}[1]{\ensuremath{\left\lvert#1\right\rvert}}  % απόλυτο
-\providecommand*{\ap}[1]{\ensuremath{^\mathrm{#1}}}  % λεκτικός εκθέτης
-\providecommand*{\ped}[1]{\ensuremath{_\mathrm{#1}}}  % λεκτικός δείκτης
-\providecommand*{\od}[3][]{\frac{\di^{#1}#2}{\di #3^{#1}}}  % παράγωγος
-\providecommand*{\pd}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}  % μερική παράγωγος
-\providecommand*{\evala}[3]{\ensuremath{\left.#1\right\rvert_{#2}^{#3}}} % υπολ. ολοκληρώματος |
-\providecommand*{\evalb}[3]{\ensuremath{\left[#1\right]_{#2}^{#3}}}  % υπολ. ολοκληρώματος []
-\providecommand*{\pu}{\text{\gr{}p}}  % ορθό `π'
-\providecommand*{\eu}{\ensuremath{\mathrm{e}}}  % ορθό `e'
-\providecommand*{\iu}{\ensuremath{\mathrm{j}}}  % ορθό `j'
 
-% ορθό διαφορικό
+% ορθό διαφορικό %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \providecommand*{\di}%
     {\@ifnextchar^{\DIfF}{\DIfF^{}}}
@@ -57,6 +46,25 @@
             \ifx\diffarg[%
                 \let\DiffSpace\relax
             \fi\fi\fi\DiffSpace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% εντολές θεσίματος νέων τελεστών
+\providecommand{\newoperator}[3]{\newcommand*{#1}{\mathop{#2}#3}}
+\providecommand{\renewoperator}[3]{\renewcommand*{#1}{\mathop{#2}#3}}
+
+\delimitershortfall-1sp  % οι παρενθέσεις μικραίνουν
+\providecommand*{\abs}[1]{\ensuremath{\left\lvert#1\right\rvert}}  % απόλυτο
+\providecommand*{\ap}[1]{\ensuremath{^\mathrm{#1}}}  % λεκτικός εκθέτης
+\providecommand*{\ped}[1]{\ensuremath{_\mathrm{#1}}}  % λεκτικός δείκτης
+\providecommand*{\od}[3][]{\frac{\di^{#1}#2}{\di #3^{#1}}}  % παράγωγος
+\providecommand*{\pd}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}  % μερική παράγωγος
+\providecommand*{\evala}[3]{\ensuremath{\left.#1\right\rvert_{#2}^{#3}}} % υπολ. ολοκληρώματος |
+\providecommand*{\evalb}[3]{\ensuremath{\left[#1\right]_{#2}^{#3}}}  % υπολ. ολοκληρώματος []
+\providecommand*{\pu}{\text{\gr{}p}}  % ορθό `π'
+\providecommand*{\eu}{\ensuremath{\mathrm{e}}}  % ορθό `e'
+\providecommand*{\iu}{\ensuremath{\mathrm{j}}}  % ορθό `j'
+\renewoperator{\Re}{\mathrm{Re}}{\nolimits}  % σωστό Re
+\renewoperator{\Im}{\mathrm{Im}}{\nolimits}  % σωστό Im
 
 
 \begin{document}
