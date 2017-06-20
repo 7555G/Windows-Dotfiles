@@ -45,7 +45,7 @@ let g:Tex_ViewRule_pdf = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.ex
 let g:Tex_ViewRule_dvi = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
 
 " Windows only
-set guifont=Menlo:h11:cDEFAULT
+set guifont=Monaco:h11
 set enc=utf8
 
 set guioptions-=m " hide menu bar
