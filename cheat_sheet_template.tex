@@ -1,0 +1,125 @@
+\documentclass[10pt,landscape]{article}
+
+\usepackage[english,greek]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[landscape,margin=1cm,showframe]{geometry}
+\usepackage{multicol}
+
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{cancel}
+
+\usepackage{graphicx,caption}
+\usepackage{longtable}
+\usepackage{appendix}
+\graphicspath{ {images/} }
+\allowdisplaybreaks
+
+%% Γλώσσες
+\newcommand{\en}{\selectlanguage{english}}
+\newcommand{\gr}{\selectlanguage{greek}}
+
+%% Μαθηματικοί τελεστές κ.α.
+
+% ορθό διαφορικό %%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatletter
+\providecommand*{\di}%
+    {\@ifnextchar^{\DIfF}{\DIfF^{}}}
+\def\DIfF^#1{%
+    \mathop{\mathrm{\mathstrut d}}%
+        \nolimits^{#1}\gobblespace}
+\def\gobblespace{%
+    \let\DiffSpace\!%
+    \ifx\diffarg(%
+        \let\DiffSpace\relax
+    \else
+        \ifx\diffarg[%
+            \let\DiffSpace\relax
+        \else
+            \ifx\diffarg[%
+                \let\DiffSpace\relax
+            \fi\fi\fi\DiffSpace}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% εντολές θεσίματος νέων τελεστών
+\providecommand{\newoperator}[3]{\newcommand*{#1}{\mathop{#2}#3}}
+\providecommand{\renewoperator}[3]{\renewcommand*{#1}{\mathop{#2}#3}}
+
+\delimitershortfall-1sp  % οι παρενθέσεις μικραίνουν
+\providecommand*{\abs}[1]{\ensuremath{\left\lvert#1\right\rvert}}  % απόλυτο
+\providecommand*{\ap}[1]{\ensuremath{^\mathrm{#1}}}  % λεκτικός εκθέτης
+\providecommand*{\ped}[1]{\ensuremath{_\mathrm{#1}}}  % λεκτικός δείκτης
+\providecommand*{\od}[3][]{\frac{\di^{#1}#2}{\di #3^{#1}}}  % παράγωγος
+\providecommand*{\pd}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}  % μερική παράγωγος
+\providecommand*{\evala}[3]{\ensuremath{\left.#1\right\rvert_{#2}^{#3}}} % υπολ. ολοκληρώματος |
+\providecommand*{\evalb}[3]{\ensuremath{\left[#1\right]_{#2}^{#3}}}  % υπολ. ολοκληρώματος []
+\providecommand*{\pu}{\text{\gr{}p}}  % ορθό `π'
+\providecommand*{\eu}{\ensuremath{\mathrm{e}}}  % ορθό `e'
+\providecommand*{\iu}{\ensuremath{\mathrm{j}}}  % ορθό `j'
+\renewoperator{\Re}{\mathrm{Re}}{\nolimits}  % σωστό Re
+\renewoperator{\Im}{\mathrm{Im}}{\nolimits}  % σωστό Im
+
+
+\begin{document}
+
+%% Κείμενο
+\pagenumbering{gobble} % αρίθμιση σελιδών
+\renewcommand\thesubsection{$(${}\alph{subsection}$)$} % αλφ. αρίθμιση subsections
+\renewcommand{\textdexiakeraia}{} % αφαίρεση του "ʹ" (δεξιά κεραία) 
+\addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} % ονομασία `Διαγράμματα'
+
+\begin{multicols}{3}
+
+\section*{Τίτλος}
+
+Κείμενο.
+
+%% Παράρτημα
+%\clearpage
+%\renewcommand\thefigure{\thesection.\arabic{figure}} % αρίθμιση
+%\setcounter{figure}{0}                               % εικονών
+%\newcommand{\appendixpagenumbering}{                   % χρειάζεται
+%    \pagenumbering{arabic}                             % για νέα
+%    \renewcommand{\thepage}{\thesection-\arabic{page}} % αρίθμηση
+%}                                                      % σελιδών
+%\begin{appendices}
+%\renewcommand\thesection{\Alph{section}}
+%\section{Κάποιο Παράρτημα}
+%\appendixpagenumbering  % χρειάζεται σε κάθε καινούριο section
+%\clearpage
+%\section{Κάποιο Άλλο Παράρτημα}
+%\appendixpagenumbering
+%\clearpage
+%\end{appendices}
+
+%% Βιβλιογραφία
+%\pagenumbering{gobble} % αφαίρεση αρίθμισης σελιδών
+%\begin{thebibliography}{1}
+%\bibitem{αναφορά}
+%\end{thebibliography}
+
+% Σχήμα
+%\begin{figure}[!htb]
+%    \captionsetup{width=0.8\textwidth}
+%    \centering
+%    \includegraphics[width=0.618\textwidth]{example-image-b}
+%    \caption{Εικόνα}
+%    \label{fig1:image}
+%\end{figure}
+
+% Πίνακας
+%\begin{longtable}{|c|c|c|}
+%    \captionsetup{width=0.8\textwidth}
+%    \caption{Πίνακας}\label{tab1:table} \\
+%    \hline
+%    Α & Β & Γ \\
+%    \hline
+%    \endhead
+%    \hline
+%    \endfoot
+%    1 & 2 & 3 \\
+%    1 & 2 & 3 \\
+%\end{longtable}
+\end{multicols}
+\end{document}
