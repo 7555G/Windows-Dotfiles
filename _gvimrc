@@ -11,7 +11,9 @@ set nowb
 
 " allow use of backspace in instert mode
 set backspace=indent,eol,start
+
 set t_Co=256
+
 colorscheme hybrid
 
 set number
@@ -22,7 +24,6 @@ set sw=4 ts=4 sts=4 " default: 4 spaces per tab
 set expandtab
 
 set autoindent
-
 set smartcase
 set hlsearch
 
