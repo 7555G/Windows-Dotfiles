@@ -1,2 +1,2 @@
 # windows-scripts
-Scripts for my windows machines.
+Scripts for Windows machines.
