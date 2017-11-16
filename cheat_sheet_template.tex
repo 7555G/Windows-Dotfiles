@@ -1,20 +1,20 @@
 \documentclass[10pt,landscape]{article}
 
+\usepackage[landscape,margin=1cm,showframe]{geometry}
 \usepackage[english,greek]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[landscape,margin=1cm,showframe]{geometry}
 \usepackage{multicol}
 
-\usepackage{mathtools}
-\usepackage{siunitx}
-\usepackage{cancel}
-
-\usepackage{graphicx,caption}
+\usepackage{graphicx,caption,subcaption}
 \usepackage{longtable}
 \usepackage{appendix}
 \graphicspath{ {images/} }
 \allowdisplaybreaks
+
+\usepackage{mathtools}
+\usepackage{siunitx}
+\usepackage{cancel}
 
 %% Γλώσσες
 \newcommand{\en}{\selectlanguage{english}}
@@ -64,10 +64,10 @@
 \begin{document}
 
 %% Κείμενο
-\pagenumbering{gobble} % αρίθμιση σελιδών
-\renewcommand\thesubsection{$(${}\alph{subsection}$)$} % αλφ. αρίθμιση subsections
+\pagenumbering{arabic} % αρίθμιση σελιδών
+\renewcommand{\thesubsection}{$(${}\alph{subsection}$)$} % αλφ. αρίθμιση subsections
 \renewcommand{\textdexiakeraia}{} % αφαίρεση του "ʹ" (δεξιά κεραία) 
-\addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} % ονομασία `Διαγράμματα'
+\addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} % ονομασία 'Διαγράμματα'
 
 \begin{multicols}{3}
 
@@ -120,6 +120,7 @@
 %    \endfoot
 %    1 & 2 & 3 \\
 %    1 & 2 & 3 \\
+%    \hline
 %\end{longtable}
 \end{multicols}
 \end{document}
