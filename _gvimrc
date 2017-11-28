@@ -2,6 +2,29 @@
 " $HOME\_gvimrc
 "
 
+"""""""""""""""""""""""""""""""""""""""""""
+set nocompatible " be iMproved, required
+filetype off     " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=$HOME/.vim/bundle/Vundle.vim/
+call vundle#begin('$HOME/.vim/bundle/')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+"" plugins start here
+
+"Plugin 'lervag/vimtex'
+"Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/nerdcommenter'
+"Plugin 'reedes/vim-lexical'
+
+"" plugins end here
+call vundle#end() " required
+"""""""""""""""""""""""""""""""""""""""""""
+
 filetype plugin indent on
 
 " no swap files
@@ -20,6 +43,9 @@ set number
 set showmatch " show matching parentheses
 syntax on
 
+" enable foldcolumn
+set foldcolumn=1
+
 set sw=4 ts=4 sts=4 " default: 4 spaces per tab
 set expandtab
 
@@ -37,13 +63,19 @@ noremap  <buffer> <silent> <up> g<up>
 noremap  <buffer> <silent> <down> g<down>
 
 " LaTeX
-let g:tex_flavor='latex'
-let g:Tex_DefaultTargetFormat='pdf'
+let g:tex_flavor = 'latex'
+let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_TreatMacViewerAsUNIX = 1
 let g:Tex_ExecuteUNIXViewerInForeground = 1
 let g:Tex_ViewRule_ps = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
 let g:Tex_ViewRule_pdf = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
 let g:Tex_ViewRule_dvi = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
+"let g:vimtex_view_general_viewer = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
+"let g:vimtex_view_general_options = '-r @line @pdf @tex'
+"let g:vimtex_view_general_options_latexmk = '-r 1'
+"let g:vimtex_compiler_latexmk = {'callback' : 0}
+let g:tex_comment_nospell = 1
+autocmd BufNewFile,BufRead *.tex set spell spelllang=en_us,el " spell check only .tex file
 
 " Windows only
 set guifont=fixedsys-mono:h12
