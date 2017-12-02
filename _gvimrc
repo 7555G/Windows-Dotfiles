@@ -19,7 +19,7 @@ Plugin 'lervag/vimtex'
 "Plugin 'LaTeX-Box-Team/LaTeX-Box'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdcommenter'
-"Plugin 'reedes/vim-lexical'
+Plugin 'lazywei/vim-matlab'
 
 "" plugins end here
 call vundle#end() " required
