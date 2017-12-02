@@ -53,7 +53,10 @@ set autoindent
 set smartcase
 set hlsearch
 
+set whichwrap+=h,l,<,>,[,] " fix line border movement
+
 set wrap lbr  " wrap lines by word
+
 " fix up down movement in wrapped lines
 noremap  <buffer> <silent> k gk
 noremap  <buffer> <silent> j gj
@@ -61,6 +64,19 @@ noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$
 noremap  <buffer> <silent> <up> g<up>
 noremap  <buffer> <silent> <down> g<down>
+
+" other mappings
+nnoremap o o<Esc>
+
+" smart ndent when entering insert mode with i on empty lines
+function! IndentWithI()
+    if len(getline('.')) == 0
+        return "cc"
+    else
+        return "i"
+    endif
+endfunction
+nnoremap <expr> i IndentWithI()
 
 " LaTeX
 let g:tex_flavor = 'latex'
