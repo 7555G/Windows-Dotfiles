@@ -79,6 +79,7 @@ endfunction
 nnoremap <expr> i IndentWithI()
 
 " LaTeX
+let g:vimtex_latexmk_progname='gvim'
 let g:tex_flavor = 'latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_TreatMacViewerAsUNIX = 1
