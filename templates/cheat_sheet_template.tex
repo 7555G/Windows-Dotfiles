@@ -1,11 +1,20 @@
 \documentclass[10pt,landscape]{article}
 
-\usepackage[landscape,margin=1cm,showframe]{geometry}
-\usepackage[english,greek]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage[a4paper, margin=1cm]{geometry}
+\usepackage{parskip}
 \usepackage{multicol}
 
+% Γλώσσες
+\usepackage{mathspec}
+\defaultfontfeatures{Ligatures=TeX}
+\usepackage[T7,T1]{fontenc}
+%\usepackage[utf8]{inputenc} % δε χρειάζεται στο XeTeX
+\usepackage{polyglossia}
+\setdefaultlanguage{greek}
+\setotherlanguage{english}
+\selectbackgroundlanguage{greek}
+
+% Πακέτα για Σχήματα, Πίνκες και Εικόνες
 \usepackage{graphicx,caption,subcaption}
 \usepackage{longtable}
 \usepackage{enumerate}
@@ -13,17 +22,24 @@
 \graphicspath{ {images/} }
 \allowdisplaybreaks
 
+% Πακέτα για Μαθηματικά
 \usepackage{mathtools}
 \usepackage{siunitx}
 \usepackage{cancel}
 
-%% Γλώσσες
-\newcommand{\en}{\selectlanguage{english}}
-\newcommand{\gr}{\selectlanguage{greek}}
+% Γραμματοσειρές
+\setmainfont{Helvetica Neue}
+%\setmathfont(Digits,Latin,Greek){Helvetica Neue}
+%\setmathrm{Helvetica Neue}
 
-%% Μαθηματικοί τελεστές κ.α.
+% Διαστάσεις
+\setlength{\parskip}{6pt}
+\setlength{\footskip}{0.5cm}
 
-% ορθό διαφορικό %%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Μαθηματικοί Τελεστές κ.α. %%%%%%%%%%%%%%
+
+% Ορθό Διαφορικό %%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
 \providecommand*{\di}%
     {\@ifnextchar^{\DIfF}{\DIfF^{}}}
@@ -43,85 +59,159 @@
             \fi\fi\fi\DiffSpace}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% εντολές θεσίματος νέων τελεστών
+% Εντολές για Θέσιμο Νέων Τελεστών
 \providecommand{\newoperator}[3]{\newcommand*{#1}{\mathop{#2}#3}}
 \providecommand{\renewoperator}[3]{\renewcommand*{#1}{\mathop{#2}#3}}
 
-\delimitershortfall-1sp  % οι παρενθέσεις μικραίνουν
-\providecommand*{\abs}[1]{\ensuremath{\left\lvert#1\right\rvert}}  % απόλυτο
-\providecommand*{\ap}[1]{\ensuremath{^\mathrm{#1}}}  % λεκτικός εκθέτης
-\providecommand*{\ped}[1]{\ensuremath{_\mathrm{#1}}}  % λεκτικός δείκτης
-\providecommand*{\od}[3][]{\frac{\di^{#1}#2}{\di #3^{#1}}}  % παράγωγος
-\providecommand*{\pd}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}  % μερική παράγωγος
-\providecommand*{\evala}[3]{\ensuremath{\left.#1\right\rvert_{#2}^{#3}}} % υπολ. ολοκληρώματος |
-\providecommand*{\evalb}[3]{\ensuremath{\left[#1\right]_{#2}^{#3}}}  % υπολ. ολοκληρώματος []
-\providecommand*{\pu}{\text{\gr{}p}}  % ορθό `π'
-\providecommand*{\eu}{\ensuremath{\mathrm{e}}}  % ορθό `e'
-\providecommand*{\iu}{\ensuremath{\mathrm{j}}}  % ορθό `j'
-\renewoperator{\Re}{\mathrm{Re}}{\nolimits}  % σωστό Re
-\renewoperator{\Im}{\mathrm{Im}}{\nolimits}  % σωστό Im
+% Οι Παρενθέσεις Μικραίνουν
+\delimitershortfall-1sp
 
+% Απόλυτο
+\providecommand*{\abs}[1]{\ensuremath{\left\lvert#1\right\rvert}}
 
-\begin{document}
+% Λεκτικός Εκθέτης
+\providecommand*{\ap}[1]{\ensuremath{^\mathrm{#1}}}
+
+% Λεκτικός Δείκτης
+\providecommand*{\ped}[1]{\ensuremath{_\mathrm{#1}}}
+
+% Παράγωγος
+\providecommand*{\od}[3][]{\frac{\di^{#1}#2}{\di #3^{#1}}}
+
+% Μερική Παράγωγος
+\providecommand*{\pd}[3][]{\frac{\partial^{#1}#2}{\partial #3^{#1}}}
+
+% Υπολογιεμένο Ολοκλήρωμα |
+\providecommand*{\evala}[3]{\ensuremath{\left.#1\right\rvert_{#2}^{#3}}}
+
+% Υπολογισμένο Ολοκλήρωμα []
+\providecommand*{\evalb}[3]{\ensuremath{\left[#1\right]_{#2}^{#3}}}
+
+% Ορθό 'π'
+\providecommand*{\pu}{\mathrm{\pi}}
+
+% Ορθό 'e'
+\providecommand*{\eu}{\ensuremath{\mathrm{e}}}
+
+% Ορθό 'j'
+\providecommand*{\iu}{\ensuremath{\mathrm{j}}}
+
+% Σωστό Re
+\renewoperator{\Re}{\mathrm{Re}}{\nolimits}
+
+% Σωστό Im
+\renewoperator{\Im}{\mathrm{Im}}{\nolimits}
+
 
 %% Κείμενο
-\pagenumbering{arabic} % αρίθμιση σελιδών
-\renewcommand{\thesubsection}{$(${}\alph{subsection}$)$} % αλφ. αρίθμιση subsections
-\renewcommand{\textdexiakeraia}{} % αφαίρεση του "ʹ" (δεξιά κεραία) 
-\addto\captionsgreek{\renewcommand{\figurename}{\gr{}Διάγραμμα}} % ονομασία 'Διαγράμματα'
+\begin{document}
 
+% Αλφαβητική Αρίθμιση των Subsections
+\renewcommand{\thesubsection}{{}(\alph{subsection})}
+
+% Αφαίρεση του "ʹ" (Δεξιά Κεραία) 
+% (a) Στην Περίπτωση του Polyglossia
+\makeatletter
+\renewrobustcmd{\anw@true}{\let\ifanw@\iftrue}
+\renewrobustcmd{\anw@false}{\let\ifanw@\iffalse}\anw@false
+\newrobustcmd{\noanw@true}{\let\ifnoanw@\iftrue}
+\newrobustcmd{\noanw@false}{\let\ifnoanw@\iffalse}\noanw@false
+\renewrobustcmd{\anw@print}{\ifanw@\ifnoanw@\else\numer@lsign\fi\fi}
+\newrobustcmd{\noanw}{\noanw@true}
+\makeatother
+
+% (β) Στην Περίπτωση του Babel
+%\renewcommand{\textdexiakeraia}{}
+
+% Ονομασίες Διαγραμμάτων, Πινάκων κλπ.
+\addto\captionsgreek{
+	\renewcommand{\figurename}{Διάγραμμα}
+    \renewcommand{\bibname}{Βιβλιογραφία}
+    \renewcommand{\refname}{Βιβλιογραφία}
+}
+
+% Κείμενο σε Στήλες
 \begin{multicols}{3}
 
-\section*{Τίτλος}
+\section{Ερώτηση.}
 
-Κείμενο.
+\subsection{Υποερώτηση.}
 
-%% Παράρτημα
-%\clearpage
-%\renewcommand\thefigure{\thesection.\arabic{figure}} % αρίθμιση
-%\setcounter{figure}{0}                               % εικονών
-%\newcommand{\appendixpagenumbering}{                   % χρειάζεται
-%    \pagenumbering{arabic}                             % για νέα
-%    \renewcommand{\thepage}{\thesection-\arabic{page}} % αρίθμηση
-%}                                                      % σελιδών
+Απάντηση.
+
+\begin{align*}
+    \displaystyle % δεν επιτρέπει στα στοιχεία να συρρικνωθούν πολύ
+    \nabla^2\varphi \textpi                 &= 0 \\
+    \pd[2]{\varphi}{x} + \pd[2]{\varphi}{y} &= 0
+\end{align*}
+
+Τέλος.
+
+%%% Παράρτημα
 %\begin{appendices}
+
+%% Αρίθμιση Εικόνων
+%\clearpage
+%\renewcommand\thefigure{\thesection.\arabic{figure}}
+%\setcounter{figure}{0}
+
+%% Νέα Αρίθμιση Σελίδων
+%\newcommand{\appendixpagenumbering}{
+ %   \pagenumbering{arabic}
+ %   \renewcommand{\thepage}{
+        %\thesection-\arabic{page}
+    %}
+%}
+
 %\renewcommand\thesection{\Alph{section}}
 %\section{Κάποιο Παράρτημα}
 %\appendixpagenumbering  % χρειάζεται σε κάθε καινούριο section
 %\clearpage
 %\section{Κάποιο Άλλο Παράρτημα}
-%\appendixpagenumbering
+%\appendixpagenumbering  % χρειάζεται σε κάθε καινούριο section
 %\clearpage
 %\end{appendices}
 
-%% Βιβλιογραφία
+
+%%% Βιβλιογραφία
 %\pagenumbering{gobble} % αφαίρεση αρίθμισης σελιδών
 %\begin{thebibliography}{1}
-%\bibitem{αναφορά}
+%\bibitem{Αναφορά.}
 %\end{thebibliography}
 
-% Σχήμα
+
+%%% Λοιπά Στοιχεία %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Μαθηματικά
+%\begin{align*}
+    %\displaystyle % δεν επιτρέπει στα στοιχεία να συρρικνωθούν πολύ
+    %\nabla^2\varphi \textpi                 &= 0 \\
+    %\pd[2]{\varphi}{x} + \pd[2]{\varphi}{y} &= 0
+%\end{align*}
+
+
+%% Σχήμα
 %\begin{figure}[!htb]
-%    \captionsetup{width=0.8\textwidth}
-%    \centering
-%    \includegraphics[width=0.618\textwidth]{example-image-b}
-%    \caption{Εικόνα}
-%    \label{fig1:image}
+	%\captionsetup{width=0.8\textwidth}
+	%\centering
+	%\includegraphics[width=0.618\textwidth]{example-image-b}
+	%\caption{Εικόνα}
+	%\label{fig1:image}
 %\end{figure}
 
-% Πίνακας
+%% Πίνακας
 %\begin{longtable}{|c|c|c|}
-%    \captionsetup{width=0.8\textwidth}
-%    \caption{Πίνακας}\label{tab1:table} \\
-%    \hline
-%    Α & Β & Γ \\
-%    \hline
-%    \endhead
-%    \hline
-%    \endfoot
-%    1 & 2 & 3 \\
-%    1 & 2 & 3 \\
-%    \hline
+	%\captionsetup{width=0.8\textwidth}
+	%\caption{Πίνακας}\label{tab1:table} \\
+	%\hline
+	%Α & Β & Γ \\
+	%\hline
+	%\endhead
+	%\hline
+	%\endfoot
+	%1 & 2 & 3 \\
+	%1 & 2 & 3 \\
+	%\hline
 %\end{longtable}
-\end{multicols}
+
 \end{document}
