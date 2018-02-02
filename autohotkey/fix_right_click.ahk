@@ -1,8 +1,6 @@
 #NoTrayIcon
 
-RButton::
-    Send {LButton}
-Return
+RButton::LButton
 
 ^LButton::
     Send {RButton}
