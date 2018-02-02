@@ -5,21 +5,21 @@
 ; Invert scrolling
 
 WheelUp::
-Send {WheelDown}
+    Send {WheelDown}
 Return
 
 WheelDown::
-Send {WheelUp}
+    Send {WheelUp}
 Return
 
 ; Shift + Wheel for horizontal scrolling
 
 +WheelDown::
-Send {WheelLeft}
+    Send {WheelLeft}
 Return
 
 +WheelUp::
-Send {WheelRight}
+    Send {WheelRight}
 Return
 
 ;; Task View Shortcuts
@@ -32,13 +32,13 @@ Return
 ; Return
 
 #RButton::
-Send #{TAB}
+    Send #{TAB}
 return
 
 #WheelLeft::
-Send #^{Left}
+    Send #^{Left}
 return
 
 #WheelRight::
-Send #^{Right}
+    Send #^{Right}
 return
