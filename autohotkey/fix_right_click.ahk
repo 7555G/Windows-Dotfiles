@@ -1,4 +1,4 @@
-# NoTrayIcon
+#NoTrayIcon
 
 RButton::
     Send {LButton}
