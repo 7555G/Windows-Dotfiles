@@ -23,9 +23,9 @@ Send {WheelRight}
 Return
 
 ;; Task View Shortcuts
-;; (Must first set Computer>HKEY_USERS>.DEFAULT>Control Panel>Keyboard>InitialKeyboardInd    icators to 2)
+;; (Must first set Computer>HKEY_USERS>.DEFAULT>Control Panel>Keyboard>InitialKeyboardIndicators to 2)
 ;; or uncomment next line
-;; SetNumLockState, AlwaysOn ;Forces the key to stay on permanently (has no effect on Win    dows 9x)
+;; SetNumLockState, AlwaysOn ;Forces the key to stay on permanently (has no effect on Windows 9x)
 ;
 ; Numpad5::
 ; Send {LWin Down}{Tab}{LWin Up}
