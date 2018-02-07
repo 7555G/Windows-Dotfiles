@@ -14,7 +14,7 @@ Control & Tab::
         send ^{Tab}
 return
 
-; Unix like Ctrl shortcuts
+; Unix style Ctrl shortcuts
 #IfWinNotActive ahk_class Vim
 Control & Esc::return
 Control & q::return
