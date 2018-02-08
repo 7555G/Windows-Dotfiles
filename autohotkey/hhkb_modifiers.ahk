@@ -19,7 +19,7 @@ Control & Tab::
         send ^{Tab}
 return
 
-; Unix style Ctrl shortcuts
+; Readline shortcuts
 #IfWinNotActive ahk_class Vim
 Control & e::Send {End}
 Control & y::Send ^v
