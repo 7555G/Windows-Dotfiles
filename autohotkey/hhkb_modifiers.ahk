@@ -1,3 +1,7 @@
+;
+; %appdata%\Microsoft\Windows\Start Menu\Programs\Startup\hhkb_modifiers.ahk
+;
+
 ; Don't show tray icon
 #NoTrayIcon
 
