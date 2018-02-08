@@ -21,7 +21,7 @@ Control & e::Send {End}
 Control & y::Send ^v
 Control & o::Send {Enter}{Left}
 Control & p::Send {Up}
-Control & a::Send ^{Home}
+Control & a::Send {Home}
 Control & d::Send {Delete}
 Control & f::Send {Right}
 Control & h::Send {Backspace}
