@@ -55,3 +55,4 @@ CapsLock & \::return
 CapsLock & ,::return
 CapsLock & .::return
 CapsLock & /::return
+CapsLock & Space::return
