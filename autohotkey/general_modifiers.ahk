@@ -19,7 +19,6 @@ return
 *CapsLock::return
 
 ; Readline tshortcuts
-#IfWinNotActive ahk_class Vim
 CapsLock & e::Send {End}
 CapsLock & y::Send ^v
 CapsLock & o::Send {Enter}{Left}
@@ -56,4 +55,3 @@ CapsLock & \::return
 CapsLock & ,::return
 CapsLock & .::return
 CapsLock & /::return
-#IfWinActive
