@@ -15,7 +15,7 @@ CapsLock & Tab::
         send ^{Tab}
 return
 
-; Caps Lock to Control
+; Disable Caps Lock
 *CapsLock::return
 
 ; Readline tshortcuts
