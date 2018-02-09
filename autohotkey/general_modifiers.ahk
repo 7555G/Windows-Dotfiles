@@ -3,7 +3,7 @@
 ;
 
 ; Don't show tray icon
-;#NoTrayIcon
+#NoTrayIcon
 
 ^Space::#Space
 ^Tab::!Tab
