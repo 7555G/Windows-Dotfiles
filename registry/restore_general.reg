@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+; This script deletes any Scancode Map by deleting
+; the "Scancode Map" value.
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
+"Scancode Map"=-
