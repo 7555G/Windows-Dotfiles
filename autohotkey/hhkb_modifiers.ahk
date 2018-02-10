@@ -57,4 +57,5 @@ Control & \::return
 Control & ,::return
 Control & .::return
 Control & /::return
+Control & Space::return
 #IfWinActive
