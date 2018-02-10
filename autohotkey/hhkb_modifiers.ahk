@@ -32,10 +32,10 @@ Control & h::Send {Backspace}
 Control & k::Send +{End}^x
 Control & b::Send {Left}
 Control & n::Send {Down}
-;Control & r::return
 Control & Esc::return
 Control & q::return
 Control & w::return
+Control & r::return
 Control & t::return
 Control & u::return
 Control & i::return
