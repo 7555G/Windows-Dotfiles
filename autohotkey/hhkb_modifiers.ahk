@@ -22,7 +22,6 @@ return
 ; Readline shortcuts
 #IfWinNotActive ahk_class Vim
 Control & e::Send {End}
-Control & y::Send ^v
 Control & o::Send {Enter}{Left}
 Control & p::Send {Up}
 Control & a::Send {Home}
@@ -37,6 +36,7 @@ Control & q::return
 Control & w::return
 Control & r::return
 Control & t::return
+Control & y::return
 Control & u::return
 Control & i::return
 Control & s::return
