@@ -12,6 +12,7 @@ SC079::RControl ; Henkan as RControl
 ^Space::#Space
 ^Tab::!Tab
 !Tab::return
+Control & LButton::send {RButton}
 Control & Tab::
     if (GetKeyState("Shift", "P"))
         send +^{Tab}
@@ -58,4 +59,5 @@ Control & ,::return
 Control & .::return
 Control & /::return
 Control & Space::return
+Control & Backspace::send {Backspace}
 #IfWinActive
