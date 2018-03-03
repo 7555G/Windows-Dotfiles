@@ -16,7 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 "" plugins start here
 
 "Plugin 'lervag/vimtex'
-"Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'lervag/vimtex'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'lazywei/vim-matlab'
@@ -101,19 +101,19 @@ let g:tex_flavor = 'latex'
 let g:Tex_DefaultTargetFormat = 'pdf'
 let g:Tex_TreatMacViewerAsUNIX = 1
 let g:Tex_ExecuteUNIXViewerInForeground = 1
-let g:Tex_ViewRule_ps = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
-let g:Tex_ViewRule_pdf = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
-let g:Tex_ViewRule_dvi = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
-"let g:vimtex_view_general_viewer = 'S:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
-"let g:vimtex_view_general_options = '-r @line @pdf @tex'
-"let g:vimtex_view_general_options_latexmk = '-r 1'
-"let g:vimtex_compiler_latexmk = {'callback' : 0}
+"let g:Tex_ViewRule_ps = 'C:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
+"let g:Tex_ViewRule_pdf = 'C:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
+"let g:Tex_ViewRule_dvi = 'C:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
+let g:vimtex_view_general_viewer = 'C:\Program Files (x86)\Evince-2.32.0.145\bin\evince.exe'
+let g:vimtex_view_general_options = '-r @line @pdf @tex'
+let g:vimtex_view_general_options_latexmk = '-r 1'
+let g:vimtex_compiler_latexmk = {'callback' : 0}
 let g:tex_comment_nospell = 1
-autocmd BufNewFile,BufRead *.tex set spell spelllang=en_us,el " spell check only .tex file
+autocmd BufNewFile,BufRead *.tex set spell spelllang=el,en_us " spell check only .tex file
 
 " Windows only
 set lines=24 columns=80
-set guifont=fixedsys-mono:h12
+set guifont=fexedsys-mono:h12
 set enc=utf8
 
 set guioptions-=m " hide menu bar
