@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{article}
+﻿\documentclass[11pt,a4paper]{article}
 
 % Διαστάσεις
 \usepackage[a4paper, margin=1cm]{geometry}
@@ -21,19 +21,18 @@
 \usepackage{cancel}
 
 % Γλώσσες
+\usepackage[T7,T1]{fontenc}
 \usepackage{mathspec}
 \defaultfontfeatures{Ligatures=TeX}
-\usepackage[T7,T1]{fontenc}
-%\usepackage[utf8]{inputenc} % δε χρειάζεται στο XeTeX
 \usepackage{polyglossia}
 \setdefaultlanguage{greek}
 \setotherlanguage{english}
 \selectbackgroundlanguage{greek}
 
 % Γραμματοσειρές
-%\setmainfont{Helvetica Neue}
-%\setmathfont(Digits,Latin,Greek){Helvetica Neue}
-%\setmathrm{Helvetica Neue}
+%\setmainfont{Calibri}
+%\setmathfont(Digits,Latin,Greek){Calibri}
+%\setmathrm{Calibri}
 
 
 %% Μαθηματικοί Τελεστές κ.α. %%%%%%%%%%%%%%
@@ -160,6 +159,7 @@
     \displaystyle % δεν επιτρέπει στα στοιχεία να συρρικνωθούν πολύ
     \nabla^2\varphi \textpi                 &= 0 \\
     \pd[2]{\varphi}{x} + \pd[2]{\varphi}{y} &= 0
+    O\mathrm{\pi τεστ}\pi τεστ(\%)
 \end{align*}
 
 Τέλος.
@@ -175,8 +175,8 @@
 
 %% Νέα Αρίθμιση Σελίδων
 %\newcommand{\appendixpagenumbering}{
- %   \pagenumbering{arabic}
- %   \renewcommand{\thepage}{
+ %   \pagenumbering{arabic}
+ %   \renewcommand{\thepage}{
         %\thesection-\arabic{page}
     %}
 %}
