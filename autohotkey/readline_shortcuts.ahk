@@ -1,5 +1,5 @@
 ;
-; %appdata%\Microsoft\Windows\Start Menu\Programs\Startup\hhkb_modifiers.ahk
+; %appdata%\Microsoft\Windows\Start Menu\Programs\Startup\readline_shortcuts.ahk
 ;
 
 ; Don't show tray icon
