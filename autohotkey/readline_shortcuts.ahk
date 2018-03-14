@@ -8,11 +8,16 @@
 ; Use "CapsLock" as LControl
 SC068::LControl
 
-SC068 & LButton::RButton
+; macOS "Command key"-like functionality for Control
 SC068 & Tab::^Tab
 ^Tab::!Tab
 !Tab::return
 ^Space::#Space
+
+; macOS-like context click
+RButton::LButton
+SC068 & LButton::RButton
+SC068 & RButton::RButton
 
 ; Readline-style Shortcuts
 SC068 & h::Backspace
