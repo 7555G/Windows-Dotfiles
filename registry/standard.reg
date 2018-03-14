@@ -9,11 +9,11 @@ Windows Registry Editor Version 5.00
 ; 00,00,00,00, -- header version (always 00000000)
 ; 00,00,00,00, -- header flags (always 00000000)
 ; 06,00,00,00, -- number of entries (including terminating NULL)
-; 38,00,1D,00, -- 1: LCtrl(1D,00)     to  LAlt(38,00)
-; 38,E0,1D,E0, -- 2: RCtr(1D,E0)      to  RAlt(38,E0)
-; 7B,00,38,00, -- 3: LAlt(38,00)      to  Muhenkan(7B,00)
-; 79,00,38,E0, -- 4: RAlt(38,E0)      to  Henkan(79,00)
-; 1D,00,3A,00, -- 5: CapsLock(3A,00)  to  LCtrl(1D,00)
+; 38,00,1D,00, -- 1: LCtrl(1D,00)    to LAlt(38,00)
+; 38,E0,1D,E0, -- 2: RCtr(1D,E0)     to RAlt(38,E0)
+; 1D,00,38,00, -- 3: LAlt(38,00)     to LCtrl(1D,00)
+; 1D,E0,38,E0, -- 4: RAlt(38,E0)     to RCtrl(1D,E0)
+; 68,00,3A,00, -- 5: CapsLock(3A,00) to F17(1D,00)
 ; 00,00,00,00  -- 6: NULL terminator
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
