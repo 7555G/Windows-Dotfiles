@@ -11,7 +11,7 @@ SC068::LControl
 ; macOS "Command key"-like functionality for Control
 SC068 & Tab::^Tab
 ^Tab::!Tab
-!Tab::return
+!Tab::send #{Tab}
 ^Space::#Space
 
 ; macOS-like context click
