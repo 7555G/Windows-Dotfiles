@@ -16,6 +16,7 @@
 
 % Πακέτα για Μαθηματικά
 \usepackage{mathtools}
+\usepackage{bm}
 \usepackage{siunitx}
 \usepackage{cancel}
 
@@ -76,6 +77,15 @@
 
 % Υπολογισμένο Ολοκλήρωμα []
 \providecommand*{\evalb}[3]{\ensuremath{\left[#1\right]_{#2}^{#3}}}
+
+% Ανάστροφος Πίνακα
+\providecommand*{\transpose}[1]{\ensuremath{#1^\mathsf{T}}}
+
+% Ορίζουσα Πίνακα
+\providecommand*{\det}{\ensuremath{\mathrm{det}}}
+
+% Τάξη Πίνακα
+\providecommand*{\rank}{\ensuremath{\mathrm{rank}}}
 
 % Ορθό 'π'
 \providecommand*{\pu}{\textrm{\greektext p}}
