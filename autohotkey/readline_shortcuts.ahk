@@ -12,6 +12,7 @@ SC068::LControl
 SC068 & Tab::^Tab
 ^Tab::!Tab
 !Tab::send #{Tab}
+;!Tab::return
 ^Space::#Space
 
 ; macOS-like context click
