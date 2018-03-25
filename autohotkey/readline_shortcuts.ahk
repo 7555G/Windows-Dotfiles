@@ -13,6 +13,10 @@ SC068 & Tab::^Tab
 ^Tab::!Tab
 !Tab::send #{Tab}
 ;!Tab::return
+!^Right::send #^{Right}
+!^Left::send #^{Left}
+!^Up::send #^{Up}
+!^Down::send #^{Down}
 ^Space::#Space
 
 ; macOS-like context click
