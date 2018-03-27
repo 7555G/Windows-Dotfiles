@@ -20,6 +20,7 @@ Plugin 'lervag/vimtex'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'lazywei/vim-matlab'
+Plugin 'justinmk/vim-syntax-extra'
 
 "" plugins end here
 call vundle#end() " required
@@ -107,7 +108,7 @@ autocmd BufNewFile,BufRead *.tex set spell spelllang=el,en_us " spell check only
 
 " Windows only
 set lines=24 columns=80
-set guifont=fexedsys-mono:h12
+set guifont=gohufont-11:h11
 set enc=utf8
 
 set guioptions-=m " hide menu bar
