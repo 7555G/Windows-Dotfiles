@@ -8,7 +8,7 @@
 \setlength{\parskip}{6pt}
 \setlength{\footskip}{0.5cm}
 
-% Πακέτα για Σχήματα, Πίνκες και Εικόνες
+% Πακέτα για Σχήματα, Πίνακες και Εικόνες
 \usepackage{graphicx,caption,subcaption}
 \usepackage{longtable}
 \usepackage{enumerate}
@@ -17,6 +17,7 @@
 
 % Πακέτα για Μαθηματικά
 \usepackage{mathtools}
+\usepackage{amssymb}
 \usepackage{bm}
 \usepackage{siunitx}
 \usepackage{cancel}
@@ -134,11 +135,7 @@
 
 Απάντηση.
 
-\begin{align*}
-    \displaystyle % δεν επιτρέπει στα στοιχεία να συρρικνωθούν πολύ
-    \nabla^2\varphi                         &= 0 \\
-    \pd[2]{\varphi}{x} + \pd[2]{\varphi}{y} &= 0
-\end{align*}
+\subfile{template_subfile}
 
 Τέλος.
 
