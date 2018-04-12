@@ -1,5 +1,8 @@
 \documentclass[11pt,a4paper]{article}
 
+% Συνθεση Πολλαπλών Αρχείων
+\usepackage{subfiles}
+
 % Διαστάσεις
 \usepackage[a4paper, margin=2.5cm]{geometry}
 \usepackage{parskip}
@@ -16,6 +19,7 @@
 
 % Πακέτα για Μαθηματικά
 \usepackage{mathtools}
+\usepackage{amssymb}
 \usepackage{bm}
 \usepackage{siunitx}
 \usepackage{cancel}
@@ -152,6 +156,8 @@
 \subsection{Υποερώτηση.}
 
 Απάντηση.
+
+\subfile{template_subfile.tex}
 
 \begin{align*}
     \displaystyle % δεν επιτρέπει στα στοιχεία να συρρικνωθούν πολύ
