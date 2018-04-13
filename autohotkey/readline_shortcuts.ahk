@@ -35,3 +35,7 @@ SC068 & n::Down
 SC068 & p::Up
 SC068 & Space::return
 SC068 & Backspace::Backspace
+
+#IfWinActive, ahk_class Vim
+SC068 & r::^r
+#IfWinActive
