@@ -24,6 +24,11 @@ RButton::LButton
 SC068 & LButton::RButton
 SC068 & RButton::RButton
 
+; Audio control
+RAlt & a::send {Volume_Down}
+RAlt & s::send {Volume_Up}
+RAlt & d::send {Volume_Mute}
+
 ; Readline-style Shortcuts
 SC068 & h::Backspace
 SC068 & d::Delete
