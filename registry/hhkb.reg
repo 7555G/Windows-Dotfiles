@@ -1,9 +1,6 @@
 Windows Registry Editor Version 5.00
 
-; !!DO NOT APPLY IF THE CONNECTED KEYBOARD IS HHKB!!
-;
-; This script maps scancodes of the general keyboard layout
-; modifiers to imitate the classic HHKB layout.
+; !!APPLY ONLY IF THE CONNECTED KEYBOARD IS HHKB!!
 ;
 ; The following scancode changes are insterted in Scancode Map
 ; 00,00,00,00, -- header version (always 00000000)
