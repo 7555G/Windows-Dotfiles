@@ -30,6 +30,7 @@ RAlt & s::send {Volume_Up}
 RAlt & d::send {Volume_Mute}
 
 ; Readline-style Shortcuts
+#IfWinNotActive, ahk_class Vim
 SC068 & h::Backspace
 SC068 & d::Delete
 SC068 & e::End
@@ -40,7 +41,42 @@ SC068 & n::Down
 SC068 & p::Up
 SC068 & Space::return
 SC068 & Backspace::Backspace
+#IfWinActive
 
 #IfWinActive, ahk_class Vim
+SC068 & q::^q
+SC068 & w::^w
+SC068 & e::^e
 SC068 & r::^r
+SC068 & t::^t
+SC068 & y::^y
+SC068 & u::^u
+SC068 & i::^i
+SC068 & o::^o
+SC068 & p::^p
+SC068 & [::^[
+SC068 & ]::^]
+SC068 & \::^\
+SC068 & a::^a
+SC068 & s::^s
+SC068 & d::^d
+SC068 & f::^f
+SC068 & g::^g
+SC068 & h::^h
+SC068 & j::^j
+SC068 & k::^k
+SC068 & l::^l
+SC068 & `;::^;
+SC068 & '::^'
+SC068 & z::^z
+SC068 & x::^x
+SC068 & c::^c
+SC068 & v::^v
+SC068 & b::^b
+SC068 & n::^n
+SC068 & m::^m
+SC068 & ,::^,
+SC068 & .::^.
+SC068 & /::^/
+SC068 & `::^`
 #IfWinActive
