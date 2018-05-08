@@ -23,10 +23,10 @@ return
 ;!Tab::send #{Tab}
 !Tab::return
 
-!^Right::send #^{Right}
-!^Left::send #^{Left}
-!^Up::send #^{Up}
-!^Down::send #^{Down}
+;!^Right::send #^{Right}
+;!^Left::send #^{Left}
+;!^Up::send #^{Up}
+;!^Down::send #^{Down}
 
 $^Tab::
     send {ALTDOWN}{TAB}
