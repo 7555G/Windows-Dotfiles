@@ -13,8 +13,8 @@ Windows Registry Editor Version 5.00
 ; 38,E0,1D,E0, -- 2: RCtr(1D,E0)     to RAlt(38,E0)
 ; 1D,00,38,00, -- 3: LAlt(38,00)     to LCtrl(1D,00)
 ; 1D,E0,38,E0, -- 4: RAlt(38,E0)     to RCtrl(1D,E0)
-; 68,00,3A,00, -- 5: CapsLock(3A,00) to F17(68,00)
+; 70,00,3A,00, -- 5: CapsLock(3A,00) to (70,00)
 ; 00,00,00,00  -- 6: NULL terminator
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
-"Scancode Map"=hex:00,00,00,00, 00,00,00,00, 06,00,00,00, 38,00,1D,00, 38,E0,1D,E0, 1D,00,38,00, 1D,E0,38,E0, 68,00,3A,00, 00,00,00,00
+"Scancode Map"=hex:00,00,00,00, 00,00,00,00, 06,00,00,00, 38,00,1D,00, 38,E0,1D,E0, 1D,00,38,00, 1D,E0,38,E0, 70,00,3A,00, 00,00,00,00
