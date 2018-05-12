@@ -117,4 +117,5 @@ set guioptions-=r " hide scroll bar
 inoremap <C-v> <ESC>"+Pa
 nnoremap <C-v> "+P
 vnoremap <C-v> "+P
+cnoremap <C-v> "+P
 vnoremap <C-c> "+y
