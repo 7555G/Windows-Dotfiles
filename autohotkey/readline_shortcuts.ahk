@@ -49,8 +49,8 @@ return
 
 ; macOS-like context click
 ;RButton::LButton
-;SC070 & LButton::RButton
-;SC070 & RButton::RButton
+;SC070 & LButton::send {RButton}
+;SC070 & RButton::send {RButton}
 
 
 ; Audio control
