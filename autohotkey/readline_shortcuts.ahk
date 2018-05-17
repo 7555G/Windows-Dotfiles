@@ -53,11 +53,13 @@ return
 ;SC070 & RButton::send {RButton}
 
 
-; Audio control
+; Audio/Media control
 RAlt & a::send {Volume_Down}
 RAlt & s::send {Volume_Up}
 RAlt & d::send {Volume_Mute}
-
+PrintScreen::send {Media_Prev}
+ScrollLock::send {Media_Play_Pause}
+Pause::send {Media_Next}
 
 ; Readline-style Shortcuts
 #IfWinNotActive, ahk_class Vim
