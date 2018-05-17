@@ -12,8 +12,8 @@
 
 
 ; swap "\" and "Backspace" keys
-\::Backspace
-Backspace::\
+;\::Backspace
+;Backspace::\
 
 
 ; macOS "Command key"-like functionality for Control (mapped on Alt)
