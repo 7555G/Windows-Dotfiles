@@ -11,6 +11,11 @@
 ~SC070::LCtrl
 
 
+; swap "\" and "Backspace" keys
+\::Backspace
+Backspace::\
+
+
 ; macOS "Command key"-like functionality for Control (mapped on Alt)
 SC070 & Tab::
     if (GetKeyState("Shift", "P") = 1) {
