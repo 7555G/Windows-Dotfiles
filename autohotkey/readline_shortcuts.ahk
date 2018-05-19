@@ -74,6 +74,8 @@ Pause::send {Media_Next}
 
 ; Readline-style Shortcuts
 #IfWinNotActive, ahk_class Vim
+~SC070::return
+SC070::LCtrl
 SC070 & h::send {Backspace}
 SC070 & d::send {Delete}
 SC070 & e::send {End}
