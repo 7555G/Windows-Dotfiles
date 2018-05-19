@@ -56,6 +56,12 @@ return
 ;RButton::LButton
 ;SC070 & LButton::send {RButton}
 ;SC070 & RButton::send {RButton}
+;SC070 & WheelUp::
+;    sleep 1000
+;return
+;SC070 & WheelDown::
+;    sleep 1000
+;return
 
 
 ; Audio/Media control
