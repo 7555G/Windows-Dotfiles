@@ -65,12 +65,9 @@ return
 
 
 ; Audio/Media control
-RAlt & a::send {Volume_Down}
-RAlt & s::send {Volume_Up}
-RAlt & d::send {Volume_Mute}
-PrintScreen::send {Media_Prev}
-ScrollLock::send {Media_Play_Pause}
-Pause::send {Media_Next}
+PrintScreen::send {Volume_Mute}
+ScrollLock::send {Volume_Down}{Volume_Down}{Volume_Down}
+Pause::send {Volume_Up}{Volume_Up}{Volume_Up}
 
 ; Readline-style Shortcuts
 #IfWinNotActive, ahk_class Vim
