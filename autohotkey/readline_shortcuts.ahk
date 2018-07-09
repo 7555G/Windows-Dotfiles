@@ -71,8 +71,7 @@ Pause::send {Volume_Up}{Volume_Up}{Volume_Up}
 
 
 ; Readline-style Shortcuts
-#IfWinNotActive, ahk_class Vim
-#IfWinNotExist, Steam
+#if !WinActive("ahk_class Vim") && !WinExist("Steam")
 ~SC070::return
 SC070::LCtrl
 SC070 & h::send {Backspace}
@@ -85,5 +84,4 @@ SC070 & n::send {Down}
 SC070 & p::send {Up}
 SC070 & Space::return
 SC070 & Backspace::send {Backspace}
-#IfWinNotExist
-#IfWinActive
+#if
