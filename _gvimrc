@@ -20,6 +20,7 @@ Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'lazywei/vim-matlab'
 Plugin 'justinmk/vim-syntax-extra'
+Plugin 'vim-python/python-syntax'
 
 "" plugins end here
 call vundle#end() " required
