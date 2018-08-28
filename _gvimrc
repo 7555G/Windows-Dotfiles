@@ -15,7 +15,6 @@ Plugin 'VundleVim/Vundle.vim'
 
 "" plugins start here
 
-"Plugin 'lervag/vimtex'
 Plugin 'lervag/vimtex'
 Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdcommenter'
