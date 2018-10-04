@@ -7,6 +7,15 @@
 #NoTrayIcon
 
 
+; Store modifiers' state
+*$~Ctrl::ctrl := "^"
+*$Ctrl up::ctrl := ""
+*$~Shift::shift := "+"
+*$Shift up::shift := ""
+*$~Alt::alt := "!"
+*$Alt up::alt := ""
+
+
 ; Use 0x70 (mapped on "CapsLock") as Left Control
 ~SC070::LCtrl
 
@@ -17,13 +26,7 @@
 
 
 ; macOS "Command key"-like functionality for Control (mapped on Alt)
-SC070 & Tab::
-    if (GetKeyState("Shift", "P") = 1) {
-        send +^{Tab}
-    } else {
-        send ^{Tab}
-    }
-return
+SC070 & Tab::send %shift%^{Tab}
 
 ;!Tab::send #{Tab}
 !Tab::return
@@ -86,14 +89,14 @@ Pause::send {Volume_Up}{Volume_Up}{Volume_Up}
 #if !WinActive("ahk_class Vim") && !WinExist("Steam")
 ~SC070::return
 SC070::LCtrl
-SC070 & h::send {Backspace}
-SC070 & d::send {Delete}
-SC070 & e::send {End}
-SC070 & a::send {Home}
-SC070 & f::send {Right}
-SC070 & b::send {Left}
-SC070 & n::send {Down}
-SC070 & p::send {Up}
+SC070 & h::send %shift%%ctrl%{Backspace}
+SC070 & d::send %shift%%ctrl%{Delete}
+SC070 & e::send %shift%%ctrl%{End}
+SC070 & a::send %shift%%ctrl%{Home}
+SC070 & f::send %shift%%ctrl%{Right}
+SC070 & b::send %shift%%ctrl%{Left}
+SC070 & n::send %shift%%ctrl%{Down}
+SC070 & p::send %shift%%ctrl%{Up}
 SC070 & Space::return
-SC070 & Backspace::send {Backspace}
+SC070 & Backspace::send %shift%%ctrl%{Backspace}
 #if
