@@ -28,20 +28,20 @@ return
 ;!Tab::send #{Tab}
 !Tab::return
 
-;!<^Right::
-;    send {LWin down}{LCtrl down}{Right}
-;    send {LWin up}{LCtrl up}
-;return
-;!>^Right::
-;    send {RWin down}{RCtrl down}{Right}
-;    send {RWin up}{RCtrl up}
-;return
 ;!<^Left::
 ;    send {LWin down}{LCtrl down}{Left}
 ;    send {LWin up}{LCtrl up}
 ;return
 ;!>^Left::
 ;    send {RWin down}{RCtrl down}{Left}
+;    send {RWin up}{RCtrl up}
+;return
+;!<^Right::
+;    send {LWin down}{LCtrl down}{Right}
+;    send {LWin up}{LCtrl up}
+;return
+;!>^Right::
+;    send {RWin down}{RCtrl down}{Right}
 ;    send {RWin up}{RCtrl up}
 ;return
 
