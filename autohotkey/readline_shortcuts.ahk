@@ -86,7 +86,7 @@ Pause::send {Volume_Up}{Volume_Up}{Volume_Up}
 
 
 ; Readline-style Shortcuts
-#if !WinActive("ahk_class Vim") && !WinExist("Steam")
+#if !WinActive("ahk_class Vim") && !WinExist("Steam") && !WinActive("Guild Wars 2")
 ~SC070::return
 SC070::LCtrl
 SC070 & h::send %shift%%ctrl%{Backspace}
