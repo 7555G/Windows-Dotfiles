@@ -80,7 +80,7 @@ inoremap <buffer> <silent> <End>   <C-o>g<End>
 " other mappings
 nnoremap o o<Esc>
 
-" smart ndent when entering insert mode with i on empty lines
+" smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
     if len(getline('.')) == 0
         return "cc"
