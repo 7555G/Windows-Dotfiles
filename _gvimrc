@@ -36,12 +36,19 @@ set nowb
 set t_Co=256
 colorscheme sunyata
 
-syntax on
+" greek
+set gfs=fixedgr
+
+" unix line endings
+set fileformat=unix
+
+" syntax on
 set showcmd
 set number
 set showmatch " show matching parentheses
 
 set autoindent
+set cindent
 set smartcase
 set hlsearch
 
@@ -77,18 +84,35 @@ inoremap <buffer> <silent> <Up>    <C-o>gk
 inoremap <buffer> <silent> <home>  <C-o>g<home>
 inoremap <buffer> <silent> <End>   <C-o>g<End>
 
-" other mappings
-nnoremap o o<Esc>
-
 " smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
     if len(getline('.')) == 0
-        return "cc"
+        return "\"_cc"
     else
         return "i"
     endif
 endfunction
 nnoremap <expr> i IndentWithI()
+
+function! IndentWithA()
+    if len(getline('.')) == 0
+        return "\"_cc"
+    else
+        return "a"
+    endif
+endfunction
+nnoremap <expr> i IndentWithA()
+
+" use OS clipboard and copy-paste shortcuts
+set clipboard=unnamed
+inoremap <C-v> <Space><ESC>"+gPs
+nnoremap <C-v> "+p
+vnoremap <C-v> "+p
+cnoremap <C-v> <C-r>+
+vnoremap <C-c> "+y
+
+" other mappings
+nnoremap o o<Esc>
 
 " Fortran
 let fortran_free_source=1
@@ -114,9 +138,3 @@ set enc=utf8
 set guioptions-=m " hide menu bar
 set guioptions-=T " hide tool bar
 set guioptions-=r " hide scroll bar
-
-inoremap <C-v> <Space><ESC>"+gPs
-nnoremap <C-v> "+p
-vnoremap <C-v> "+p
-cnoremap <C-v> <C-r>+
-vnoremap <C-c> "+y
