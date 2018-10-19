@@ -116,7 +116,7 @@ set guioptions-=T " hide tool bar
 set guioptions-=r " hide scroll bar
 
 inoremap <C-v> <Space><ESC>"+gPs
-nnoremap <C-v> "+gp
-vnoremap <C-v> "+gp
+nnoremap <C-v> "+p
+vnoremap <C-v> "+p
 cnoremap <C-v> <C-r>+
 vnoremap <C-c> "+y
