@@ -1,4 +1,4 @@
-\documentclass[10pt,landscape]{article}
+\documentclass[10pt, landscape]{article}
 
 % Σύνθεση Πολλαπλών Αρχείων
 \usepackage{subfiles}
@@ -11,11 +11,11 @@
 \setlength{\footskip}{0.5cm}
 
 % Πακέτα για Σχήματα, Πίνακες και Εικόνες
-\usepackage{graphicx,caption,subcaption}
+\usepackage{graphicx, color, caption, subcaption}
 \usepackage{longtable}
 \usepackage{enumerate}
 \usepackage{appendix}
-\graphicspath{ {images/} }
+\graphicspath{{images/}}
 
 % Πακέτα για Μαθηματικά
 \usepackage{mathtools}
@@ -26,9 +26,9 @@
 \allowdisplaybreaks
 
 % Γλώσσες
-\usepackage[english,greek]{babel}
+\usepackage[english, greek]{babel}
 \usepackage[utf8]{inputenc}
-\usepackage[LGR,T1]{fontenc}
+\usepackage[LGR, T1]{fontenc}
 \newcommand{\gr}{\selectlanguage{greek}}
 \newcommand{\en}{\selectlanguage{english}}
 
@@ -184,23 +184,24 @@
 %% Μαθηματικά
 %\begin{align*}
 %    \displaystyle % δεν επιτρέπει στα στοιχεία να συρρικνωθούν πολύ
-%    \nabla^2\varphi \textpi                 &= 0 \\
+%    \nabla^2\varphi                         &= 0 \\
 %    \pd[2]{\varphi}{x} + \pd[2]{\varphi}{y} &= 0
 %\end{align*}
 
 
 %% Σχήμα
 %\begin{figure}[!htb]
-%    \captionsetup{justification=centering,width=0.8\textwidth}
+%    \captionsetup{justification=centering, width=0.8\textwidth}
 %    \centering
-%    \includegraphics[width=0.618\textwidth]{example-image-b}
+%    %\input{images/epslatex-image-name}
+%    \includegraphics[width=0.618\textwidth]{raster-image-name}
 %    \caption{Εικόνα}
 %    \label{fig1:image}
 %\end{figure}
 
 %% Πίνακας
 %\begin{longtable}{|c|c|c|}
-%    \captionsetup{justification=centering,width=0.8\textwidth}
+%    \captionsetup{justification=centering, width=0.8\textwidth}
 %    \caption{Πίνακας}\label{tab1:table} \\
 %    \hline
 %    Α & Β & Γ \\
