@@ -101,7 +101,7 @@ function! IndentWithA()
         return "a"
     endif
 endfunction
-nnoremap <expr> i IndentWithA()
+nnoremap <expr> a IndentWithA()
 
 " use OS clipboard and copy-paste shortcuts
 set clipboard=unnamed
