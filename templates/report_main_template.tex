@@ -35,8 +35,10 @@
 
 %% Μαθηματικοί Τελεστές κ.α. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-% Ορθό Διαφορικό %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Νέες εντολές %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \makeatletter
+
+% Ορθό Διαφορικό
 \providecommand*{\di}%
     {\@ifnextchar^{\DIfF}{\DIfF^{}}}
 \def\DIfF^#1{%
@@ -53,6 +55,14 @@
             \ifx\diffarg[%
                 \let\DiffSpace\relax
             \fi\fi\fi\DiffSpace}
+
+% Σύστημα Εξισώσεων
+\newcases{eqsystem}{\quad}{%
+   $\hfil\m@th\displaystyle{##}$}{$\m@th\displaystyle{##}$\hfil}{.}{\rbrace}
+\newcases{eqsystem*}{\quad}{%
+   $\hfil\m@th\displaystyle{##}$}{${##}$\hfil}{.}{\rbrace}
+
+\makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % Εντολές για Θέσιμο Νέων Τελεστών
