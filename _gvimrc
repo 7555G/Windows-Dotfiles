@@ -105,7 +105,7 @@ nnoremap <expr> a IndentWithA()
 
 " use OS clipboard and copy-paste shortcuts
 set clipboard=unnamed
-inoremap <C-v> <Space><ESC>"+gPs
+inoremap <C-v> <Space><ESC>"+gP<Backspace>i
 nnoremap <C-v> "+p
 vnoremap <C-v> "+p
 cnoremap <C-v> <C-r>+
