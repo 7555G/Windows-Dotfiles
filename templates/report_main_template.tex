@@ -56,21 +56,23 @@
                 \let\DiffSpace\relax
             \fi\fi\fi\DiffSpace}
 
-% Σύστημα Εξισώσεων
-\newcases{eqsystem}{\quad}{%
-   $\hfil\m@th\displaystyle{##}$}{$\m@th\displaystyle{##}$\hfil}{.}{\rbrace}
-\newcases{eqsystem*}{\quad}{%
-   $\hfil\m@th\displaystyle{##}$}{${##}$\hfil}{.}{\rbrace}
-
 \makeatother
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Οι Παρενθέσεις Μικραίνουν
+\delimitershortfall-1sp
+
+% Σύστημα Εξισώσεων
+\newenvironment{eqsystem}
+    {\left\{\begin{aligned}
+    }
+    { 
+    \end{aligned}\right.
+    } 
 
 % Εντολές για Θέσιμο Νέων Τελεστών
 \providecommand{\newoperator}[3]{\newcommand*{#1}{\mathop{#2}#3}}
 \providecommand{\renewoperator}[3]{\renewcommand*{#1}{\mathop{#2}#3}}
-
-% Οι Παρενθέσεις Μικραίνουν
-\delimitershortfall-1sp
 
 % Απόλυτο
 \providecommand*{\abs}[1]{\ensuremath{\left\lvert#1\right\rvert}}
