@@ -97,6 +97,7 @@ SC070 & f::send %shift%%ctrl%{Right}
 SC070 & b::send %shift%%ctrl%{Left}
 SC070 & n::send %shift%%ctrl%{Down}
 SC070 & p::send %shift%%ctrl%{Up}
+SC070 & c::send %shift%^c
 SC070 & Space::return
 SC070 & Backspace::send %shift%%ctrl%{Backspace}
 #if
