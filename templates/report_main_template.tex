@@ -63,6 +63,12 @@
 % Οι Παρενθέσεις Μικραίνουν
 \delimitershortfall-1sp
 
+% Μείωση κενού πριν και μετά τις μεγάλες παρενθέσεις
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
 % Σύστημα Εξισώσεων
 \newenvironment{eqsystem}
     {\left\{\begin{aligned}
