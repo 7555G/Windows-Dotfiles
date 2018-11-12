@@ -144,9 +144,17 @@
 
 % Ονομασίες Διαγραμμάτων, Πινάκων κλπ.
 \addto\captionsgreek{
-%    \renewcommand{\figurename}{Διάγραμμα}
+    \renewcommand{\figurename}{Διάγραμμα}
     \renewcommand{\bibname}{Βιβλιογραφία}
     \renewcommand{\refname}{Βιβλιογραφία}
+}
+
+% Αρίθμιση σελίδων παραρτήματος
+\newcommand{\appendixpagenumbering}{
+    \pagenumbering{arabic}
+    \renewcommand{\thepage}{
+        \thesection-\arabic{page}
+    }
 }
 
 % Εξώφυλλο
@@ -175,23 +183,17 @@
 \subfile{subfile_template}
 
 
-%% Παράρτημα
+% Παράρτημα
 %\begin{appendices}
+%\clearpage
+%
+%% Αλφαβητική αρίθμιση των Sections
+%\renewcommand\thesection{\Alph{section}}
 %
 %% Αρίθμιση Εικόνων
-%\clearpage
 %\renewcommand\thefigure{\thesection.\arabic{figure}}
 %\setcounter{figure}{0}
 %
-%% Νέα Αρίθμιση Σελίδων
-%\newcommand{\appendixpagenumbering}{
-%    \pagenumbering{arabic}
-%    \renewcommand{\thepage}{
-%        \thesection-\arabic{page}
-%    }
-%}
-%
-%\renewcommand\thesection{\Alph{section}}
 %\section{Κάποιο Παράρτημα}
 %\appendixpagenumbering  % χρειάζεται σε κάθε καινούριο section
 %\clearpage
