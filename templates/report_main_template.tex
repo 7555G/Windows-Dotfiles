@@ -144,9 +144,9 @@
 
 % Ονομασίες Διαγραμμάτων, Πινάκων κλπ.
 \addto\captionsgreek{
-    \renewcommand{\figurename}{Διάγραμμα}
-    \renewcommand{\bibname}{Βιβλιογραφία}
-    \renewcommand{\refname}{Βιβλιογραφία}
+%    \renewcommand{\figurename}{Διάγραμμα}
+    \renewcommand{\bibname}{\gr Βιβλιογραφία}
+    \renewcommand{\refname}{\gr Βιβλιογραφία}
 }
 
 % Αρίθμιση σελίδων παραρτήματος
@@ -157,30 +157,15 @@
     }
 }
 
-% Εξώφυλλο
-\begin{titlepage}
-\centering
-\large
-Σχολή \\
-Τμήμα \\
-\today
-\vfill
-\vfill
-{\huge Τίτλος \\}
-{\LARGE Μάθημα \\}
-\vfill
-\large
-Ον/επώνυμο \\
-Αρ. μητρώου \\
-Ομάδα
-\vfill
-\vfill
-\end{titlepage}
+\title{Τίτλος \\ \Large Μάθημα}
+\author{Ον/επώνυμο, Αρ. μητρώου \\ Σχολή, Πανεπιστήμιο}
+\date{\today}
+
+% Τίτλος
+\maketitle
 
 % Αρίθμιση Σελίδων
 \pagenumbering{arabic}
-
-\section{Ερώτηση}
 
 \subfile{subfile_template}
 
@@ -208,7 +193,8 @@
 %% Βιβλιογραφία
 %\pagenumbering{gobble} % αφαίρεση αρίθμισης σελιδών
 %\begin{thebibliography}{1}
-%\bibitem{Αναφορά.}
+%\bibitem{reference}
+%αναφορά.
 %\end{thebibliography}
 
 
