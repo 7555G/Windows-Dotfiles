@@ -142,13 +142,6 @@
 % Αφαίρεση του "ʹ" (Δεξιά Κεραία) 
 \renewcommand{\textdexiakeraia}{}
 
-% Ονομασίες Διαγραμμάτων, Πινάκων κλπ.
-\addto\captionsgreek{
-%    \renewcommand{\figurename}{Διάγραμμα}
-    \renewcommand{\bibname}{Βιβλιογραφία}
-    \renewcommand{\refname}{Βιβλιογραφία}
-}
-
 % Αρίθμιση σελίδων παραρτήματος
 \newcommand{\appendixpagenumbering}{
     \pagenumbering{arabic}
@@ -159,8 +152,6 @@
 
 % Κείμενο σε Στήλες
 \begin{multicols}{3}
-
-\section{Ερώτηση.}
 
 \subfile{subfile_template}
 
@@ -186,11 +177,11 @@
 %\clearpage
 %\end{appendices}
 
-
 %% Βιβλιογραφία
 %\pagenumbering{gobble} % αφαίρεση αρίθμισης σελιδών
 %\begin{thebibliography}{1}
-%\bibitem{Αναφορά.}
+%\bibitem{reference}
+%Μία αναφορά.
 %\end{thebibliography}
 
 
@@ -202,7 +193,6 @@
 %    \nabla^2\varphi                         &= 0 \\
 %    \pd[2]{\varphi}{x} + \pd[2]{\varphi}{y} &= 0
 %\end{align*}
-
 
 %% Σχήμα
 %\begin{figure}[!htb]
