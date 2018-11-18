@@ -5,9 +5,11 @@
 
 % Διαστάσεις
 \usepackage[a4paper, margin=1cm]{geometry}
-\usepackage{parskip}
 \usepackage{multicol}
-\setlength{\parskip}{6pt}
+\usepackage{setspace}
+\setstretch{1}
+\usepackage{parskip}
+\setlength{\parskip}{7pt}
 \setlength{\footskip}{0.5cm}
 
 % Πακέτα για Σχήματα, Πίνακες και Εικόνες
@@ -15,7 +17,7 @@
 \usepackage[outdir=images/]{epstopdf}
 \usepackage{longtable}
 \usepackage{enumerate}
-\usepackage{appendix}
+\usepackage[title]{appendix}
 \graphicspath{{images/}}
 \epstopdfsetup{outdir=./}
 
@@ -73,12 +75,11 @@
 \renewcommand{\right}{\aftergroup\egroup\originalright}
 
 % Σύστημα Εξισώσεων
-\newenvironment{eqsystem}
-    {\left\{\begin{aligned}
-    }
-    { 
-    \end{aligned}\right.
-    } 
+\newenvironment{eqsystem}{%
+    \left\{\begin{aligned}%
+}{%
+    \end{aligned}\right.%
+} 
 
 % Εντολές για Θέσιμο Νέων Τελεστών
 \providecommand{\newoperator}[3]{\newcommand*{#1}{\mathop{#2}#3}}
@@ -135,9 +136,27 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
-%% Κείμενο
-\begin{document}
-\gr
+%% Τροποποιήσεις εμφάνισης %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Τροποποιημένο παράρτημα
+\newenvironment{myappendices}{%
+    \clearpage
+    \begin{appendices}
+    % Αρίθμιση Εικόνων
+    \renewcommand\thefigure{\Alph{section}\arabic{figure}}
+}{%
+    \end{appendices}%
+}
+
+% Τροποποιημένες αναφορές
+\newenvironment*{myreferences}[1]{%
+    \clearpage
+    % αφαίρεση αρίθμισης σελιδών
+    \pagenumbering{gobble}
+    \begin{thebibliography}{#1}
+}{%
+    \end{thebibliography}%
+}
 
 % Αλφαβητική Αρίθμιση των Subsections
 \renewcommand{\thesubsection}{{}(\alph{subsection})}
@@ -145,50 +164,22 @@
 % Αφαίρεση του "ʹ" (Δεξιά Κεραία) 
 \renewcommand{\textdexiakeraia}{}
 
-% Αρίθμιση σελίδων παραρτήματος
-\newcommand{\appendixpagenumbering}{
-    \pagenumbering{arabic}
-    \renewcommand{\thepage}{
-        \thesection-\arabic{page}
-    }
-}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%% Κείμενο
+\begin{document}
+\gr
 
 % Κείμενο σε Στήλες
 \begin{multicols}{3}
 
-\subfile{subfile_template}
+\subfile{subfile}
 
 \end{multicols}
 
 
-%% Παράρτημα
-%\begin{appendices}
-%\clearpage
-%
-%% Αλφαβητική αρίθμιση των Sections
-%\renewcommand\thesection{\Alph{section}}
-%
-%% Αρίθμιση Εικόνων
-%\renewcommand\thefigure{\thesection.\arabic{figure}}
-%\setcounter{figure}{0}
-%
-%\section{Κάποιο Παράρτημα}
-%\appendixpagenumbering  % χρειάζεται σε κάθε καινούριο section
-%\clearpage
-%\section{Κάποιο Άλλο Παράρτημα}
-%\appendixpagenumbering  % χρειάζεται σε κάθε καινούριο section
-%\clearpage
-%\end{appendices}
-
-%% Βιβλιογραφία
-%\pagenumbering{gobble} % αφαίρεση αρίθμισης σελιδών
-%\begin{thebibliography}{1}
-%\bibitem{reference}
-%Μία αναφορά.
-%\end{thebibliography}
-
-
-%%% Λοιπά Στοιχεία %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Στοιχεία %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Μαθηματικά
 %\begin{align*}
