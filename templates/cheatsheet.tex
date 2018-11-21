@@ -35,8 +35,8 @@
 \usepackage[english, greek]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage[LGR, T1]{fontenc}
-\newcommand{\gr}{\selectlanguage{greek}}
-\newcommand{\en}{\selectlanguage{english}}
+\providecommand{\gr}{\selectlanguage{greek}}
+\providecommand{\en}{\selectlanguage{english}}
 
 
 %% Μαθηματικοί Τελεστές κ.α. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -132,6 +132,12 @@
 
 % Σωστό Im
 \renewoperator{\Im}{\mathrm{Im}}{\nolimits}
+
+% Command to access the wasysym font
+\providecommand{\getwasy}{\fontencoding{U}\fontfamily{wasy}\selectfont}
+
+% Define wasysym diameter symbol
+\providecommand{\diameter}{\mbox{\getwasy\symbol{31}}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
