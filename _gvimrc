@@ -119,7 +119,7 @@ vnoremap <C-c> "+y
 nnoremap o o<Esc>
 
 " Python
- autocmd BufRead,BufNewFile *.py let python_highlight_all=1
+autocmd BufRead,BufNewFile *.py let python_highlight_all=1
 autocmd BufRead,BufNewFile *.py :Python3Syntax 
 
 " Fortran
