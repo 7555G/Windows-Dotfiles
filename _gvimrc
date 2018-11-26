@@ -157,8 +157,19 @@ set signcolumn=yes
 
 let g:syntastic_error_symbol='x'
 let g:syntastic_warning_symbol='▲'
-let g:syntastic_style_error_symbol='?'
-let g:syntastic_style_warning_symbol='!?'
+let g:syntastic_style_error_symbol='!?'
+let g:syntastic_style_warning_symbol='?'
+
+let g:syntastic_tex_chktex_quiet_messages={'regex': [
+    \ 'Command terminated with space.',
+    \ 'No match found for',
+    \ 'perhaps',
+    \ 'doesn''t match the number of',
+    \ 'You should put a space in front of',
+    \ 'is normally not',
+    \ 'You should enclose the previous'
+\ ]}
+let g:syntastic_tex_lacheck_quiet_messages={'regex': 'unmatched'}
 
 " Windows only
 set lines=24 columns=80
