@@ -15,56 +15,56 @@
 *$~Alt::alt := "!"
 *$Alt up::alt := ""
 
-
-; Use 0x70 (mapped on "CapsLock") as Left Control
+; Use 0x70 as control ("CapsLock" is mapped to 0x70 in registry)
 ~SC070::LCtrl
 
-
-; swap "\" and "Backspace" keys
+; swap "\" and "Backspace" keys (not for hhkb)
 ;\::Backspace
 ;Backspace::\
 
-
-; macOS "Command key"-like functionality for Control (mapped on Alt)
-SC070 & Tab::send %shift%^{Tab}
-
-;!Tab::send #{Tab}
-!Tab::return
-
-;!<^Left::
-;    send {LWin down}{LCtrl down}{Left}
-;    send {LWin up}{LCtrl up}
-;return
-;!>^Left::
-;    send {RWin down}{RCtrl down}{Left}
-;    send {RWin up}{RCtrl up}
-;return
-;!<^Right::
-;    send {LWin down}{LCtrl down}{Right}
-;    send {LWin up}{LCtrl up}
-;return
-;!>^Right::
-;    send {RWin down}{RCtrl down}{Right}
-;    send {RWin up}{RCtrl up}
-;return
+; macOS "Command key"-like functionality for Control and Alt,
+; and for hhkb make Alt behave like Win
+SC070 & Tab::send ^%shift%{Tab}
+*^Esc::send !%shift%{Esc}
 
 $^Tab::
-    send {ALTDOWN}{TAB}
+    send {Alt down}%shift%{Tab}
     KeyWait Ctrl
-    send {ALTUP}
-return
-
-$^+Tab::
-    send {ALTDOWN}{SHIFTDOWN}{TAB}
-    KeyWait Ctrl
-    send {ALTUP}{SHIFTUP}
+    send {Alt up}
 return
 
 ^Space::
-    send {LWINDOWN}{SPACE}
+    send {LWin down}{Space}
     KeyWait Ctrl
-    send {LWINUP}
+    send {LWin up}
 return
+
+!<^Left::
+    send {LWin down}{LCtrl down}{Left}
+    send {LWin up}{LCtrl up}
+return
+
+!>^Left::
+    send {RWin down}{RCtrl down}{Left}
+    send {RWin up}{RCtrl up}
+return
+
+!<^Right::
+    send {LWin down}{LCtrl down}{Right}
+    send {LWin up}{LCtrl up}
+return
+
+!>^Right::
+    send {RWin down}{RCtrl down}{Right}
+    send {RWin up}{RCtrl up}
+return
+
+$*!Esc::return
+!Space::send ^{Esc} ; hhkb only
+;#Space::send ^{Esc} ; not hhkb
+
+!Tab::send #{Tab} ; hhkb only
+;!Tab::return}     ; not hhkb
 
 
 ; macOS-like context click
@@ -97,7 +97,7 @@ SC070 & f::send %shift%%ctrl%{Right}
 SC070 & b::send %shift%%ctrl%{Left}
 SC070 & n::send %shift%%ctrl%{Down}
 SC070 & p::send %shift%%ctrl%{Up}
-SC070 & c::send %shift%^c
+SC070 & c::send %shift%^{c}
 SC070 & Space::return
 SC070 & Backspace::send %shift%%ctrl%{Backspace}
 #if
