@@ -26,6 +26,7 @@
 ; and for hhkb make Alt behave like Win
 SC070 & Tab::send ^%shift%{Tab}
 *^Esc::send !%shift%{Esc}
+*^`::send !%shift%{Esc}
 
 $^Tab::
     send {Alt down}%shift%{Tab}
