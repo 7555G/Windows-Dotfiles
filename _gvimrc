@@ -123,6 +123,7 @@ vnoremap <C-c> "+y
 
 " other mappings
 nnoremap o o<Esc>
+let g:SuperTabDefaultCompletionType="<c-n>" " reverse supertab order
 
 " Python
 
