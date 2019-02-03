@@ -82,20 +82,25 @@ set foldnestmax=99 " depth of last folding
 set foldcolumn=0
 
 " fix movement in wrapped lines
-noremap  <buffer> <silent> k       gk
-noremap  <buffer> <silent> j       gj
-noremap  <buffer> <silent> <up>    gk
-noremap  <buffer> <silent> <down>  gj
-noremap  <buffer> <silent> <home>  g<home>
-noremap  <buffer> <silent> <End>   g<End>
-noremap  <buffer> <silent> 0       g0
-noremap  <buffer> <silent> $       g$
-noremap  <buffer> <silent> ^       g^
-noremap  <buffer> <silent> <space> za
-inoremap <buffer> <silent> <Down>  <C-o>gj
+noremap  <buffer> <silent> <Up>    gk
 inoremap <buffer> <silent> <Up>    <C-o>gk
-inoremap <buffer> <silent> <home>  <C-o>g<home>
+noremap  <buffer> <silent> <Down>  gj
+inoremap <buffer> <silent> <Down>  <C-o>gj
+noremap  <buffer> <silent> j       gj
+noremap  <buffer> <silent> k       gk
+noremap  <buffer> <silent> <Home>  g<home>
+inoremap <buffer> <silent> <Home>  <C-o>g<home>
+noremap  <buffer> <silent> <End>   g<End>
 inoremap <buffer> <silent> <End>   <C-o>g<End>
+noremap  <buffer> <silent> 0       g0
+noremap  <buffer> <silent> ^       g^
+noremap  <buffer> <silent> $       g$
+noremap  <buffer> <silent> <Space> za
+
+" execute last command with C-@
+noremap  <buffer> <silent> <C-@>   :@:<CR>
+inoremap <buffer> <silent> <C-@>   <Esc>:@:<CR>
+cnoremap <buffer> <silent> <C-@>   <C-e><C-u>@:<CR>
 
 " smart indent when entering insert mode with i on empty lines
 function! IndentWithI()
@@ -160,6 +165,18 @@ function SetSignColumn(file_name, is_modifiable)
         let &signcolumn = "yes"
         let b:gutterwidth = 2
     endif
+endfunction
+
+function CleanTerminal(terminal)
+    silent execute '! echo -en "\ec" >' a:terminal
+    redraw!
+endfunction
+
+function PipeText(text)
+    let pipe = "/tmp/vim_pipe"
+    silent! execute '![[ \! -e' pipe ']] && mkfifo' pipe
+    silent! execute '!echo "' . a:text . '" >' pipe
+    redraw!
 endfunction
 
 " Autocommands
