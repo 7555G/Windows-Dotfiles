@@ -164,7 +164,7 @@ let g:ale_sign_error='⬤'
 let g:ale_sign_warning ='▲'
 
 " functions
-function SetSignColumn(file_name, is_modifiable)
+function! SetSignColumn(file_name, is_modifiable)
     if empty(a:file_name) || !a:is_modifiable
         let &signcolumn = 'no'
         let b:gutterwidth = 0
@@ -197,10 +197,7 @@ augroup END
 
 
 " Windows only
+set guioptions= " no gui
 set lines=24 columns=80
 set guifont=fixedsys:h12
 set enc=utf8
-
-set guioptions-=m " hide menu bar
-set guioptions-=T " hide tool bar
-set guioptions-=r " hide scroll bar
