@@ -67,6 +67,7 @@ $*!Esc::return
 
 ; macOS-like context click
 $RButton::LButton
+$LButton::RButton
 ;Ctrl & LButton::send {RButton}
 ;Ctrl & RButton::send {RButton}
 ;Ctrl & WheelUp::
@@ -96,6 +97,7 @@ SC070 & b::send %shift%%ctrl%{Left}
 SC070 & n::send %shift%%ctrl%{Down}
 SC070 & p::send %shift%%ctrl%{Up}
 SC070 & c::send %shift%^{c}
+SC070 & l::send %shift%^{l}
 SC070 & Space::return
 SC070 & Backspace::send %shift%%ctrl%{Backspace}
 #if
