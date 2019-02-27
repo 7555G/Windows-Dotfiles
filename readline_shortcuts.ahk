@@ -3,8 +3,10 @@
 ;
 
 
-; Don't show tray icon
+; behavior
 #NoTrayIcon
+#SingleInstance force
+SetWinDelay,0
 
 
 ; Store modifiers' state
