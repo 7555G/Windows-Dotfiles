@@ -10,3 +10,17 @@ Set-Alias -Name vim -Value gvim
 
 # set custom prompt
 function prompt {"$(Get-Location | Split-Path -Leaf) "}
+
+# 'cd' follows shortcuts
+remove-item alias:cd -force
+function cd($target) {
+    if($target.EndsWith(".lnk")) {
+        $sh = new-object -com wscript.shell
+        $fullpath = resolve-path $target
+        $targetpath = $sh.CreateShortcut($fullpath).TargetPath
+        set-location $targetpath
+    }
+    else {
+        set-location $target
+    }
+}
