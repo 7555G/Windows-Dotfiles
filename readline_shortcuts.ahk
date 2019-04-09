@@ -1,5 +1,5 @@
 ;
-; %appdata%\Microsoft\Windows\Start Menu\Programs\Startup\readline_shortcuts.ahk
+; %USERPROfILE%\Documents\readline_shortcuts.ahk
 ;
 
 
@@ -81,9 +81,9 @@ $LButton::RButton
 
 
 ; Audio/Media control
-PrintScreen::send {Volume_Mute}
-ScrollLock::send {Volume_Down}{Volume_Down}{Volume_Down}
-Pause::send {Volume_Up}{Volume_Up}{Volume_Up}
+*PrintScreen::send {Volume_Mute}
+*ScrollLock::send {Volume_Down}{Volume_Down}{Volume_Down}
+*Pause::send {Volume_Up}{Volume_Up}{Volume_Up}
 
 
 ; Readline-style Shortcuts
