@@ -8,14 +8,14 @@ Windows Registry Editor Version 5.00
 ; The following scancode changes are insterted in Scancode Map
 ; 00,00,00,00, -- header version (always 00000000)
 ; 00,00,00,00, -- header flags (always 00000000)
-; 06,00,00,00, -- number of entries (including terminating NULL)
+; 07,00,00,00, -- number of entries (including terminating NULL)
 ; 38,00,5B,E0, -- 1: LWin(5B,E0)     to LAlt(38,00)
 ; 38,E0,5C,E0, -- 2: RWin(5C,E0)     to RAlt(38,E0)
 ; 1D,00,38,00, -- 3: LAlt(38,00)     to LCtrl(1D,00)
 ; 1D,E0,38,E0, -- 4: RAlt(38,E0)     to RCtrl(1D,E0)
-; 38,E0,5D,E0, -- 4: Menu(5D,E0)     to RAlt(38,E0)
 ; 70,00,3A,00, -- 5: CapsLock(3A,00) to F17(70,00)
-; 00,00,00,00  -- 6: NULL terminator
+; 0E,00,45,00, -- 6: NumLock(45,00)  to Backspace(0E,00)
+; 00,00,00,00  -- 7: NULL terminator
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Keyboard Layout]
-"Scancode Map"=hex:00,00,00,00, 00,00,00,00, 06,00,00,00, 38,00,5B,E0, 38,E0,5C,E0, 1D,00,38,00, 1D,E0,38,E0, 38,E0,5D,E0, 70,00,3A,00, 00,00,00,00
+"Scancode Map"=hex:00,00,00,00, 00,00,00,00, 07,00,00,00, 38,00,5B,E0, 38,E0,5C,E0, 1D,00,38,00, 1D,E0,38,E0, 70,00,3A,00, 0E,00,45,00, 00,00,00,00
