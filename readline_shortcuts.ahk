@@ -29,8 +29,12 @@ SetWinDelay,0
 SC070 & Tab::send ^%shift%{Tab}
 *^Esc::send !%shift%{Esc}
 *^`::send !%shift%{Esc}
+*$!Esc::return
+!Space::send ^{Esc}
+!Tab::send #{Tab}
 
 $^Tab::
+$^+Tab::
     send {Alt down}%shift%{Tab}
     KeyWait Ctrl
     send {Alt up}
@@ -62,10 +66,6 @@ return
     send {RWin up}{RCtrl up}
 return
 
-$*!Esc::return
-!Space::send ^{Esc}
-!Tab::send #{Tab}
-
 
 ; macOS-like context click
 $RButton::LButton
@@ -82,8 +82,8 @@ $LButton::RButton
 
 ; Audio/Media control
 *PrintScreen::send {Volume_Mute}
-*ScrollLock::send {Volume_Down}{Volume_Down}{Volume_Down}
-*Pause::send {Volume_Up}{Volume_Up}{Volume_Up}
+*ScrollLock::send {Volume_Down}{Volume_Down}
+*Pause::send {Volume_Up}{Volume_Up}
 
 
 ; Readline-style Shortcuts
