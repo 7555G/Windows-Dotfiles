@@ -1,11 +1,30 @@
-$dotfiles_dir = "$PSScriptRoot"
+#
+# ~/dotfiles/setup.ps1
+#
 
-#cmd /c mklink "${HOME}\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1" "$dotfiles_dir\Microsoft.PowerShell_profile.psi"
-#cmd /c mklink "${HOME}\_gvimrc" "$dotfiles_dir\_gvimrc"
-#cmd /c mklink "${HOME}\_vimrc" "$dotfiles_dir\_vimrc"
-#cmd /c mklink "${HOME}\Documents\readline_shortcuts.ahk" "$dotfiles_dir\readline_shortcuts.ahk"
+${filesPaths} =
+    "${HOME}\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1",
+    "${HOME}\Documents\readline_shortcuts.ahk",
+    "${HOME}\_gvimrc",
+    "${HOME}\_vimrc"
+${dotfilesDir} = ${PSScriptRoot}
 
-"at ${HOME}\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1 to $dotfiles_dir\Microsoft.PowerShell_profile.psi"
-"at ${HOME}\_gvimrc to $dotfiles_dir\_gvimrc"
-"at ${HOME}\_vimrc to $dotfiles_dir\_vimrc"
-"at ${HOME}\Documents\readline_shortcuts.ahk to $dotfiles_dir\readline_shortcuts.ahk"
+foreach(${filePath} in ${filesPaths}) {
+    ${fileDir} = Split-Path ${filePath}
+    ${fileName} = Split-Path ${filePath} -leaf
+    ${dotfilePath} = "${dotfilesDir}\${fileName}"
+
+    # prepare path
+    if (Test-Path ${filePath}) {
+        # delete possible existing symlinks
+        rm ${filePath}
+        "Replacing existing file: ${filePath}"
+    } ElseIf (!(Test-Path ${fileDir})) {
+        # create parent directory if needed
+        "Created directory: ${fileDir}"
+        mkdir ${fileDir}
+    }
+
+    # make new symlink
+    cmd /c mklink ${filePath} ${dotfilePath}
+}
