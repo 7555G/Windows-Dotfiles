@@ -7,7 +7,7 @@ ${filesPaths} =
     "${HOME}\Documents\readline_shortcuts.ahk",
     "${HOME}\_gvimrc",
     "${HOME}\_vimrc"
-${dotfilesDir} = ${PSScriptRoot}
+${dotfilesDir} = "${PSScriptRoot}"
 
 foreach(${filePath} in ${filesPaths}) {
     ${fileDir} = Split-Path ${filePath}
