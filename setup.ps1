@@ -3,28 +3,55 @@
 #
 
 ${filesPaths} =
-    "${HOME}\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1",
-    "${HOME}\Documents\readline_shortcuts.ahk",
-    "${HOME}\_gvimrc",
-    "${HOME}\_vimrc"
+  "${HOME}\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1",
+  "${HOME}\Documents\readline_shortcuts.ahk",
+  "${HOME}\_gvimrc",
+  "${HOME}\_vimrc"
 ${dotfilesDir} = "${PSScriptRoot}"
 
-foreach(${filePath} in ${filesPaths}) {
-    ${fileDir} = Split-Path ${filePath}
-    ${fileName} = Split-Path ${filePath} -leaf
-    ${dotfilePath} = "${dotfilesDir}\${fileName}"
+${extFilesPaths} =
+  "${HOME}\vimfiles\after",
+  "${HOME}\vimfiles\colors"
+${extDotfilesDir} = "${HOME}\freebsd_dotfiles\vim"
 
-    # prepare path
-    if (Test-Path ${filePath}) {
-        # delete possible existing symlinks
-        rm ${filePath}
-        "Replacing existing file: ${filePath}"
-    } ElseIf (!(Test-Path ${fileDir})) {
-        # create parent directory if needed
-        "Created directory: ${fileDir}"
-        mkdir ${fileDir}
+function Make-Symlinks(${filesPaths}, ${dotfilesDir}) {
+
+    foreach(${filePath} in ${filesPaths}) {
+        ${fileParentDir} = Split-Path ${filePath}
+        ${fileName} = Split-Path ${filePath} -Leaf
+        ${dotfilePath} = "${dotfilesDir}\${fileName}"
+        ${isDir} = Test-Path ${dotfilePath} -PathType Container
+
+        # skip if the dotfile is not found
+        If (!(Test-Path ${dotfilePath})) {
+            "Skipped: ${dotfilePath}"
+            Continue
+        }
+
+        # prepare path
+        if (Test-Path ${filePath}) {
+            # delete possible existing symlinks
+            If ($isDir) {
+                cmd /c rmdir /s /q ${filePath}
+            } Else {
+                rm ${filePath}
+            }
+
+            "Replacing existing symlink."
+        } ElseIf (!(Test-Path ${fileParentDir})) {
+            # create parent directory if needed
+            mkdir ${fileParentDir} > $null
+            "Created directory: ${fileParentDir}"
+        }
+
+        # make new symlink
+        If ($isDir) {
+            cmd /c mklink /D ${filePath} ${dotfilePath}
+        } Else {
+            cmd /c mklink ${filePath} ${dotfilePath}
+        }
     }
-
-    # make new symlink
-    cmd /c mklink ${filePath} ${dotfilePath}
 }
+
+Make-Symlinks ${filesPaths} ${dotfilesDir}
+Make-Symlinks ${extFilesPaths} ${extDotfilesDir}
