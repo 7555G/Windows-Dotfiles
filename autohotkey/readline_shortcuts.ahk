@@ -1,10 +1,12 @@
 ;
-; %appdata%\Microsoft\Windows\Start Menu\Programs\Startup\readline_shortcuts.ahk
+; %USERPROfILE%\Documents\readline_shortcuts.ahk
 ;
 
 
-; Don't show tray icon
+; behavior
 #NoTrayIcon
+#SingleInstance force
+SetWinDelay,0
 
 
 ; Store modifiers' state
@@ -27,8 +29,12 @@
 SC070 & Tab::send ^%shift%{Tab}
 *^Esc::send !%shift%{Esc}
 *^`::send !%shift%{Esc}
+*$!Esc::return
+!Space::send ^{Esc}
+!Tab::send #{Tab}
 
 $^Tab::
+$^+Tab::
     send {Alt down}%shift%{Tab}
     KeyWait Ctrl
     send {Alt up}
@@ -60,30 +66,24 @@ return
     send {RWin up}{RCtrl up}
 return
 
-$*!Esc::return
-!Space::send ^{Esc} ; hhkb only
-;#Space::send ^{Esc} ; not hhkb
-
-!Tab::send #{Tab} ; hhkb only
-;!Tab::return}     ; not hhkb
-
 
 ; macOS-like context click
-;RButton::LButton
-;SC070 & LButton::send {RButton}
-;SC070 & RButton::send {RButton}
-;SC070 & WheelUp::
+$RButton::LButton
+$LButton::RButton
+;Ctrl & LButton::send {RButton}
+;Ctrl & RButton::send {RButton}
+;Ctrl & WheelUp::
 ;    sleep 1000
 ;return
-;SC070 & WheelDown::
+;Ctrl & WheelDown::
 ;    sleep 1000
 ;return
 
 
 ; Audio/Media control
-PrintScreen::send {Volume_Mute}
-ScrollLock::send {Volume_Down}{Volume_Down}{Volume_Down}
-Pause::send {Volume_Up}{Volume_Up}{Volume_Up}
+*PrintScreen::send {Volume_Mute}
+*ScrollLock::send {Volume_Down}{Volume_Down}
+*Pause::send {Volume_Up}{Volume_Up}
 
 
 ; Readline-style Shortcuts
@@ -99,6 +99,7 @@ SC070 & b::send %shift%%ctrl%{Left}
 SC070 & n::send %shift%%ctrl%{Down}
 SC070 & p::send %shift%%ctrl%{Up}
 SC070 & c::send %shift%^{c}
+SC070 & l::send %shift%^{l}
 SC070 & Space::return
 SC070 & Backspace::send %shift%%ctrl%{Backspace}
 #if
