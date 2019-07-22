@@ -199,8 +199,8 @@ augroup END
 " Windows only
 set guioptions= " no gui
 set lines=24 columns=80
-"set linespace=1
-"set guifont=Fixedsys:h12
-set linespace=4
-set guifont=Terminal:h9
+set linespace=1
+set guifont=Fixedsys:h12
+"set linespace=4
+"set guifont=Terminal:h9
 set enc=utf8
