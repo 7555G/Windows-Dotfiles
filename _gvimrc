@@ -23,6 +23,7 @@ Plugin 'lazywei/vim-matlab'
 Plugin 'hdima/python-syntax'
 Plugin 'keith/swift.vim'
 Plugin 'JuliaEditorSupport/julia-vim'
+Plugin 'PProvost/vim-ps1'
 
 "" plugins end here
 call vundle#end() " required
@@ -52,6 +53,7 @@ set fileformats=dos,unix,mac " format order to be tried on a new buffer
 
 " behavior
 syntax on
+set mouse=a
 set regexpengine=1     " use old regex engine
 set showcmd            " show typed command
 set number             " show line numbers
@@ -126,7 +128,8 @@ nnoremap <expr> a IndentWithA()
 
 " use OS clipboard and copy-paste shortcuts
 set clipboard=unnamed
-inoremap <C-v> <Space><ESC>"+gPi<Delete>
+"inoremap <C-v> <Space><ESC>"+gPi<Delete>
+inoremap <C-v> <C-r>+
 nnoremap <C-v> "+p
 vnoremap <C-v> "+p
 cnoremap <C-v> <C-r>+
@@ -197,7 +200,7 @@ augroup END
 
 
 " Windows only
-set guioptions= " no guiσδφασδσαδφασφδσαδφσδφλ΄σδφσδφ΄δφσαφσδάσφάλξασδφ΄
+set guioptions= " no gui
 set lines=24 columns=80
 set linespace=1
 set guifont=Fixedsys:h12
