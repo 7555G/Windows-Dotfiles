@@ -2,6 +2,9 @@
 # ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 #
 
+# set custom prompt
+function prompt {"$(Get-Location | Split-Path -Leaf) "}
+
 # disable default aliases
 remove-item alias:curl # which is "Invoke-WebRequest"
 remove-item -Force alias:diff
@@ -9,10 +12,7 @@ remove-item -Force alias:diff
 # use vim to run gvim
 Set-Alias -Name vim -Value gvim
 
-# set custom prompt
-function prompt {"$(Get-Location | Split-Path -Leaf) "}
-
-# 'cd' follows shortcuts
+# 'cd' follows ".lnk" shortcuts
 remove-item -force alias:cd
 function cd($target) {
     if($target.EndsWith(".lnk")) {
