@@ -2,29 +2,38 @@
 # ~/dotfiles/setup.ps1
 #
 
-${filesPaths} =
-  "${HOME}\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1",
-  "${HOME}\Documents\readline_shortcuts.ahk",
-  "${HOME}\_gvimrc",
-  "${HOME}\_vimrc"
 ${dotfilesDir} = "${PSScriptRoot}"
+${dotfiles} = @{
+    '_gvimrc' = @{
+        dotfileParentDir = "${dotfilesDir}"};
+        fileParentDir = "${HOME}";
+    '_vimrc' = @{
+        dotfileParentDir = "${dotfilesDir}"};
+        fileParentDir = "${HOME}";
+    'Microsoft.PowerShell_profile.ps1' = @{
+        dotfileParentDir = "${dotfilesDir}"}
+        fileParentDir = "${HOME}\Documents\WindowsPowerShell";
+    'after' = @{
+        dotfileParentDir = "${HOME}\freebsd_dotfiles\vim"};
+        fileParentDir = "${HOME}\vimfiles";
+    'colors' = @{
+        dotfileParentDir = "${HOME}\freebsd_dotfiles\vim"};
+        fileParentDir = "${HOME}\vimfiles";
+}
 
-${extFilesPaths} =
-  "${HOME}\vimfiles\after",
-  "${HOME}\vimfiles\colors"
-${extDotfilesDir} = "${HOME}\freebsd_dotfiles\vim"
-
-function Make-Symlinks(${filesPaths}, ${dotfilesDir}) {
-
-    foreach(${filePath} in ${filesPaths}) {
-        ${fileParentDir} = Split-Path ${filePath}
-        ${fileName} = Split-Path ${filePath} -Leaf
-        ${dotfilePath} = "${dotfilesDir}\${fileName}"
+function Make-Symlinks(${dotfiles}) {
+    foreach(${dotfileName} in ${dotfiles}.keys) {
+        ${fileParentDir} =
+            "$(${dotfiles}["${dotfileName}"]['fileParentDir'])"
+        ${dotfileParentDir} =
+            "$(${dotfiles}["${dotfileName}"]['dotfileParentDir'])"
+        ${filePath} = "${fileParentDir}\${dotfileName}"
+        ${dotfilePath} = "${dotfileParentDir}\${dotfileName}"
         ${isDir} = Test-Path ${dotfilePath} -PathType Container
 
         # skip if the dotfile is not found
         If (!(Test-Path ${dotfilePath})) {
-            "Skipped: ${dotfilePath}"
+            "!! Skipped:`r`n${dotfilePath}"
             Continue
         }
 
@@ -37,7 +46,7 @@ function Make-Symlinks(${filesPaths}, ${dotfilesDir}) {
                 rm ${filePath}
             }
 
-            "Replacing existing symlink."
+            "!! Replacing existing symlink:"
         } ElseIf (!(Test-Path ${fileParentDir})) {
             # create parent directory if needed
             mkdir ${fileParentDir} > $null
@@ -53,5 +62,4 @@ function Make-Symlinks(${filesPaths}, ${dotfilesDir}) {
     }
 }
 
-Make-Symlinks ${filesPaths} ${dotfilesDir}
-Make-Symlinks ${extFilesPaths} ${extDotfilesDir}
+Make-Symlinks ${dotfiles}
