@@ -147,26 +147,28 @@
 
 % Τροποποιημένο παράρτημα
 \newenvironment{myappendices}{%
-    \clearpage
     \begin{appendices}
-    % Αρίθμιση Εικόνων
-    \renewcommand\thefigure{\Alph{section}\arabic{figure}}
+    \clearpage{}
+    \pagenumbering{arabic}
+
+    % Αρίθμιση εικόνων
+    \renewcommand{\thefigure}{\thesection\arabic{figure}}
+    \renewcommand{\thepage}{\thesection\arabic{page}}
 }{%
+    \clearpage
     \end{appendices}%
 }
 
 % Τροποποιημένες αναφορές
 \newenvironment*{myreferences}[1]{%
     \clearpage
-    % αφαίρεση αρίθμισης σελιδών
-    \pagenumbering{gobble}
     \begin{thebibliography}{#1}
 }{%
     \end{thebibliography}%
 }
 
-% Αλφαβητική Αρίθμιση των Subsections
-\renewcommand{\thesubsection}{{}(\alph{subsection})}
+%% Αλφαβητική Αρίθμιση των Subsections
+%\renewcommand{\thesubsection}{{}(\alph{subsection})}
 
 % Αφαίρεση του "ʹ" (Δεξιά Κεραία) 
 \renewcommand{\textdexiakeraia}{}
