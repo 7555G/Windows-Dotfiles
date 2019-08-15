@@ -13,17 +13,13 @@
 \usepackage{longtable}
 \usepackage{enumerate}
 \usepackage[title]{appendix}
+\usepackage[nottoc,notlot,notlof]{tocbibind}
 \graphicspath{{images/}}
 \epstopdfsetup{outdir=./}
 
 % Πακέτα για Μαθηματικά
-\usepackage{mathtools}
-\usepackage{amssymb}
-\usepackage{alphabeta}
-\usepackage{extarrows}
+\usepackage{mathtools, amssymb, alphabeta, extarrows, cancel, siunitx}
 \usepackage{bm}
-\usepackage{siunitx}
-\usepackage{cancel}
 \allowdisplaybreaks{}
 
 % Γλώσσες
@@ -149,11 +145,11 @@
 \newenvironment{myappendices}{%
     \begin{appendices}
     \clearpage{}
-    \pagenumbering{arabic}
 
-    % Αρίθμιση εικόνων
+    % Αρίθμιση
+    %\pagenumbering{arabic}
+    %\renewcommand{\thepage}{\thesection-\arabic{page}}
     \renewcommand{\thefigure}{\thesection\arabic{figure}}
-    \renewcommand{\thepage}{\thesection\arabic{page}}
 }{%
     \clearpage
     \end{appendices}%
