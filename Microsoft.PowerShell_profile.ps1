@@ -2,6 +2,9 @@
 # ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
 #
 
+# set $PATH
+$env:Path = $env:Path + "$HOME\bin"
+
 # set custom prompt
 function prompt {"$(Get-Location | Split-Path -Leaf) "}
 
@@ -14,6 +17,7 @@ Set-Alias -Name vim -Value gvim
 
 # 'cd' follows ".lnk" shortcuts
 remove-item -force alias:cd
+
 function cd($target) {
     if($target.EndsWith(".lnk")) {
         $sh = new-object -com wscript.shell
@@ -27,20 +31,25 @@ function cd($target) {
 }
 
 # 'ln' for powershell
-function ln(${arg1}, ${arg2}, ${arg3}) {
-    if (${arg3} -eq $null) {
-        ${target} = ${arg1}
-        ${link} = ${arg2}
-    } else {
-        ${opt} = ${arg1}
-        ${target} = ${arg2}
-        ${link} = ${arg3}
-    }
+function ln() {
+    param(
+        [string][Parameter(Mandatory = $true, Position = 0)]
+        ${ItemType},
+        [string][Parameter(Mandatory = $true, Position = 1)]
+        ${Target},
+        [string][Parameter(Mandatory = $true, Position = 2)]
+        ${Link},
+        [string[]][Parameter(Position=3, ValueFromRemainingArguments)]
+        ${Remaining}
+    )
 
-    cmd /c mklink ${opt} ${link} ${target}
-    if ($LASTEXITCODE -ne 0) {
-        "`nln [[/d] | [/h] | [/j]] Target Link"
-    }
+    ${LinkPath} = Split-Path -Parent ${Link}
+    ${LinkName} = Split-Path -Leaf ${Link}
+
+    ${Command} = "New-Item -ItemType ${ItemType} -Path ${LinkPath}
+        -name ${LinkName} -value ${Target}
+        ${Remaining}".replace("`r`n", " ")
+    Invoke-Expression ${Command}
 }
 
 # 'which' for powershell
