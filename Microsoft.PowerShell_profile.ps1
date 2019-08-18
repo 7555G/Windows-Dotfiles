@@ -26,7 +26,20 @@ function cd($target) {
     }
 }
 
-# mklink for powershell
-function mklink(${opt}, ${link}, ${target}) {
+# 'ln' for powershell
+function ln(${opt}, ${target}, ${link}) {
     cmd /c mklink ${opt} ${link} ${target}
+    if ($LASTEXITCODE -ne 0) {
+        "ln [[/D] | [/H] | [/J/]] Target Link"
+    }
+}
+
+# 'which' for powershell
+function which(${target}) {
+    Get-Command ${target} -Syntax
+}
+
+# 'killall' for powershell
+function killall(${target}) {
+    Stop-Process -Name ${target} -Force
 }
