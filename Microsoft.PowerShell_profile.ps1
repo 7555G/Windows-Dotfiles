@@ -27,10 +27,19 @@ function cd($target) {
 }
 
 # 'ln' for powershell
-function ln(${opt}, ${target}, ${link}) {
+function ln(${arg1}, ${arg2}, ${arg3}) {
+    if (${arg3} -eq $null) {
+        ${target} = ${arg1}
+        ${link} = ${arg2}
+    } else {
+        ${opt} = ${arg1}
+        ${target} = ${arg2}
+        ${link} = ${arg3}
+    }
+
     cmd /c mklink ${opt} ${link} ${target}
     if ($LASTEXITCODE -ne 0) {
-        "ln [[/D] | [/H] | [/J/]] Target Link"
+        "`nln [[/d] | [/h] | [/j]] Target Link"
     }
 }
 
