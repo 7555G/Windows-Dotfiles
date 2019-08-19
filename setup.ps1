@@ -1,65 +1,65 @@
 #
-# ~/dotfiles/setup.ps1
+# ~/Dotfiles/setup.ps1
 #
 
-${dotfilesDir} = "${PSScriptRoot}"
-${dotfiles} = @{
+${DotfilesDir} = "${PSScriptRoot}"
+${Dotfiles} = @{
     '_gvimrc' = @{
-        dotfileParentDir = "${dotfilesDir}"};
-        fileParentDir = "${HOME}";
+        DotfileParentDir = "${DotfilesDir}"
+        FileParentDir = "${HOME}"}
     '_vimrc' = @{
-        dotfileParentDir = "${dotfilesDir}"};
-        fileParentDir = "${HOME}";
+        DotfileParentDir = "${DotfilesDir}"
+        FileParentDir = "${HOME}"}
     'Microsoft.PowerShell_profile.ps1' = @{
-        dotfileParentDir = "${dotfilesDir}"}
-        fileParentDir = "${HOME}\Documents\WindowsPowerShell";
+        DotfileParentDir = "${DotfilesDir}"
+        FileParentDir = "${HOME}\Douments\WindowsPowerShell"}
     'after' = @{
-        dotfileParentDir = "${HOME}\freebsd_dotfiles\vim"};
-        fileParentDir = "${HOME}\vimfiles";
+        DotfileParentDir = "${HOME}\freebsd_Dotfiles\vim"
+        FileParentDir = "${HOME}\vimfiles")}
     'colors' = @{
-        dotfileParentDir = "${HOME}\freebsd_dotfiles\vim"};
-        fileParentDir = "${HOME}\vimfiles";
+        DotfileParentDir = "${HOME}\freebsd_Dotfiles\vim"
+        FileParentDir = "${HOME}\vimfiles"}
 }
 
-function Make-Symlinks(${dotfiles}) {
-    foreach(${dotfileName} in ${dotfiles}.keys) {
-        ${fileParentDir} =
-            "$(${dotfiles}["${dotfileName}"]['fileParentDir'])"
-        ${dotfileParentDir} =
-            "$(${dotfiles}["${dotfileName}"]['dotfileParentDir'])"
-        ${filePath} = "${fileParentDir}\${dotfileName}"
-        ${dotfilePath} = "${dotfileParentDir}\${dotfileName}"
-        ${isDir} = Test-Path ${dotfilePath} -PathType Container
+function Make-Symlinks(${Dotfiles}) {
+    foreach(${DotfileName} in ${Dotfiles}.Keys) {
+        ${FileParentDir} =
+            $( ${Dotfiles}[${DotfileName}]['FileParentDir'] )
+        ${DotfileParentDir} =
+            $( ${Dotfiles}[${DotfileName}]['DotfileParentDir'] )
+        ${FilePath} = ${FileParentDir}\${DotfileName}
+        ${DotfilePath} = ${DotfileParentDir}\${DotfileName}
+        ${IsDir} = Test-Path ${DotfilePath} -PathType Container
 
-        # skip if the dotfile is not found
-        If (!(Test-Path ${dotfilePath})) {
-            "!! Skipped:`r`n${dotfilePath}"
-            Continue
+        # skip if the Dotfile is not found
+        if (!(Test-Path ${DotfilePath})) {
+            "!! Skipped:`r`n${DotfilePath}"
+            continue
         }
 
         # prepare path
-        if (Test-Path ${filePath}) {
+        if (Test-Path ${FilePath}) {
             # delete possible existing symlinks
-            If ($isDir) {
-                cmd /c rmdir /s /q ${filePath}
-            } Else {
-                rm ${filePath}
+            if ($IsDir) {
+                cmd /c rmdir /s /q ${FilePath}
+            } else {
+                rm ${FilePath}
             }
 
             "!! Replacing existing symlink:"
-        } ElseIf (!(Test-Path ${fileParentDir})) {
+        } elseIf (!(Test-Path ${FileParentDir})) {
             # create parent directory if needed
-            mkdir ${fileParentDir} > $null
-            "Created directory: ${fileParentDir}"
+            mkdir ${FileParentDir} > $Null
+            "Created directory: ${FileParentDir}"
         }
 
         # make new symlink
-        If ($isDir) {
-            cmd /c mklink /D ${filePath} ${dotfilePath}
-        } Else {
-            cmd /c mklink ${filePath} ${dotfilePath}
+        if ($IsDir) {
+            cmd /c mklink /D ${FilePath} ${DotfilePath}
+        } else {
+            cmd /c mklink ${FilePath} ${DotfilePath}
         }
     }
 }
 
-Make-Symlinks ${dotfiles}
+Make-Symlinks ${Dotfiles}
