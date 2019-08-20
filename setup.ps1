@@ -3,62 +3,47 @@
 #
 
 ${DotfilesDir} = "${PSScriptRoot}"
-${Dotfiles} = @{
-    '_gvimrc' = @{
-        DotfileParentDir = "${DotfilesDir}"
-        FileParentDir = "${HOME}"}
-    '_vimrc' = @{
-        DotfileParentDir = "${DotfilesDir}"
-        FileParentDir = "${HOME}"}
-    'Microsoft.PowerShell_profile.ps1' = @{
-        DotfileParentDir = "${DotfilesDir}"
-        FileParentDir = "${HOME}\Douments\WindowsPowerShell"}
-    'after' = @{
-        DotfileParentDir = "${HOME}\freebsd_Dotfiles\vim"
-        FileParentDir = "${HOME}\vimfiles")}
-    'colors' = @{
-        DotfileParentDir = "${HOME}\freebsd_Dotfiles\vim"
-        FileParentDir = "${HOME}\vimfiles"}
+${Links} = @{
+    "${HOME}\_gvimrc" =
+    "${DotfilesDir}\_gvimrc"
+
+    "${HOME}\_vimrc" =
+    "${DotfilesDir}\_gvimrc"
+
+    "${PROFILE}" =
+    "${DotfilesDir}\Microsoft.PowerShell_profile.ps1"
+
+    "${HOME}\vimfiles\after" =
+    "${HOME}\freebsd_dotfiles\vim\after"
+
+    "${HOME}\vimfiles\colors" =
+    "${HOME}\freebsd_dotfiles\vim\colors"
 }
 
 function Make-Symlinks(${Dotfiles}) {
-    foreach(${DotfileName} in ${Dotfiles}.Keys) {
-        ${FileParentDir} =
-            $( ${Dotfiles}[${DotfileName}]['FileParentDir'] )
-        ${DotfileParentDir} =
-            $( ${Dotfiles}[${DotfileName}]['DotfileParentDir'] )
-        ${FilePath} = ${FileParentDir}\${DotfileName}
-        ${DotfilePath} = ${DotfileParentDir}\${DotfileName}
-        ${IsDir} = Test-Path ${DotfilePath} -PathType Container
-
-        # skip if the Dotfile is not found
-        if (!(Test-Path ${DotfilePath})) {
-            "!! Skipped:`r`n${DotfilePath}"
+    foreach (${FilePath} in ${Links}.Keys) {
+        # skip if the dotfile is not found
+        if (!(Test-Path ${Links}[${FilePath}])) {
+            "`r`n!! Skipped:"
+            "$( ${Links}[${FilePath}] )"
             continue
         }
 
-        # prepare path
+        # replacement warnign
         if (Test-Path ${FilePath}) {
-            # delete possible existing symlinks
-            if ($IsDir) {
-                cmd /c rmdir /s /q ${FilePath}
-            } else {
-                rm ${FilePath}
-            }
-
-            "!! Replacing existing symlink:"
-        } elseIf (!(Test-Path ${FileParentDir})) {
-            # create parent directory if needed
-            mkdir ${FileParentDir} > $Null
-            "Created directory: ${FileParentDir}"
+            "`r`n!! Replacing existing symlink:"
         }
 
-        # make new symlink
-        if ($IsDir) {
-            cmd /c mklink /D ${FilePath} ${DotfilePath}
-        } else {
-            cmd /c mklink ${FilePath} ${DotfilePath}
+        # make symlink
+        ${NewItemParameters} = @{
+            ItemType = 'SymbolicLink'
+            Path = Split-Path ${FilePath} -Parent 
+            Name = Split-Path ${FilePath} -Leaf
+            Value = ${Links}[${FilePath}]
+            Force = $true
         }
+
+        New-Item @NewItemParameters
     }
 }
 
