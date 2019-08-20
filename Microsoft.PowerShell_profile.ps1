@@ -1,23 +1,22 @@
 # 
-# ~\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1
+# ${PROFILE}
 #
 
 # set $PATH
-$env:Path = $env:Path + "$HOME\bin"
+$env:Path = $env:Path + "${HOME}\bin"
 
 # set custom prompt
 function Prompt {"$(Get-Location | Split-Path -Leaf) "}
 
 # disable default aliases
-Remove-Item alias:curl # which is "Invoke-WebRequest"
+#Remove-Item alias:curl # which is "Invoke-WebRequest"
 Remove-Item -Force alias:diff
+Remove-Item -Force Alias:cd
 
 # use vim to run gvim
 Set-Alias -Name vim -Value gvim
 
 # 'cd' follows ".lnk" shortcuts
-Remove-Item -Force Alias:cd
-
 Function cd {
     [CmdletBinding()]
     param([string][Parameter(Mandatory = $true)]${Target})
@@ -47,8 +46,16 @@ function ln {
         ${Remaining}
     )
 
-    ${LinkPath} = Split-Path -Parent ${Link}
-    ${LinkName} = Split-Path -Leaf ${Link}
+    # check the link is a directory or file
+    if (Test-Path -Path ${Link} -PathType Container) {
+        ${LinkPath} = Resolve-Path ${Link}
+        ${LinkName} = Split-Path ${Target} -Leaf
+    } else {
+        ${LinkPath} = Resolve-Path $( Split-Path ${Link} -Parent )
+        ${LinkName} = Split-Path ${Link} -Leaf
+    }
+    ${Target} = Resolve-Path ${Target}
+
     ${NewItemParameters} = @{
         ItemType = ${ItemType}
         Path = ${LinkPath}
@@ -56,6 +63,7 @@ function ln {
         Value = ${Target}
     }
 
+    #$NewItemParameters
     Invoke-Expression "New-Item @NewItemParameters ${Remaining}"
 }
 
