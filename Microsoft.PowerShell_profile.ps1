@@ -13,8 +13,9 @@ function Prompt {"$(Get-Location | Split-Path -Leaf) "}
 Remove-Item -Force alias:diff
 Remove-Item -Force Alias:cd
 
-# use vim to run gvim
+# aliases
 Set-Alias -Name vim -Value gvim
+Set-Alias -Name ex -Value explorer
 
 # 'cd' follows ".lnk" shortcuts
 Function cd {
