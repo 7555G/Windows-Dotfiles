@@ -12,8 +12,8 @@
 \usepackage[outdir=images/]{epstopdf}
 \usepackage{longtable}
 \usepackage{enumerate}
-\usepackage[title]{appendix}
-\usepackage[nottoc,notlot,notlof]{tocbibind}
+\usepackage[title, toc]{appendix}
+\usepackage[nottoc, notlot, notlof]{tocbibind}
 \graphicspath{{images/}}
 \epstopdfsetup{outdir=./}
 
@@ -24,8 +24,8 @@
 
 % Γλώσσες
 \usepackage[english, greek]{babel}
-\usepackage[utf8]{inputenc}
 \usepackage[LGR, T1]{fontenc}
+\usepackage[utf8]{inputenc}
 \usepackage[autostyle,english=american]{csquotes}
 \providecommand{\gr}{\selectlanguage{greek}}
 \providecommand{\en}{\selectlanguage{english}}
@@ -143,6 +143,7 @@
 
 % Τροποποιημένο παράρτημα
 \newenvironment{myappendices}{%
+    \noappendicestocpagenum{}
     \begin{appendices}
     \clearpage{}
 
@@ -162,6 +163,10 @@
 }{%
     \end{thebibliography}%
 }
+
+% 'Παραρτήματα' αντί για 'Αππενδιςες'
+\renewcommand{\appendixtocname}{Παραρτήματα}
+\renewcommand{\appendixpagename}{Παραρτήματα}
 
 %% Αλφαβητική Αρίθμιση των Subsections
 %\renewcommand{\thesubsection}{{}(\alph{subsection})}
