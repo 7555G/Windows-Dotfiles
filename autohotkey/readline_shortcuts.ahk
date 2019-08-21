@@ -20,10 +20,6 @@ SetWinDelay, 0
 ; Use 0x70 as control ("CapsLock" is mapped to 0x70 in registry)
 ~SC070::LCtrl
 
-; swap "\" and "Backspace" keys (not for hhkb)
-;\::Backspace
-;Backspace::\
-
 ; macOS "Command key"-like functionality for Control and Alt,
 ; and for hhkb make Alt behave like Win
 SC070 & Tab::send ^%shift%{Tab}
@@ -87,19 +83,24 @@ $LButton::RButton
 
 
 ; Readline-style Shortcuts
-#if !WinActive("ahk_class Vim") && !WinExist("Steam") && !WinActive("Guild Wars 2")
-~SC070::return
-SC070::LCtrl
-SC070 & h::send %shift%%ctrl%{Backspace}
-SC070 & d::send %shift%%ctrl%{Delete}
-SC070 & e::send %shift%%ctrl%{End}
-SC070 & a::send %shift%%ctrl%{Home}
-SC070 & f::send %shift%%ctrl%{Right}
-SC070 & b::send %shift%%ctrl%{Left}
-SC070 & n::send %shift%%ctrl%{Down}
-SC070 & p::send %shift%%ctrl%{Up}
-SC070 & c::send %shift%^{c}
-SC070 & l::send %shift%^{l}
-SC070 & Space::return
-SC070 & Backspace::send %shift%%ctrl%{Backspace}
+#if !WinActive("ahk_class Vim")
+               && !WinExist("Steam")
+               && !WinActive("Guild Wars 2")
+    ~SC070::return
+    SC070::LCtrl
+    SC070 & h::send %shift%%ctrl%{Backspace}
+    SC070 & d::send %shift%%ctrl%{Delete}
+    SC070 & e::send %shift%%ctrl%{End}
+    SC070 & a::send %shift%%ctrl%{Home}
+    SC070 & f::send %shift%%ctrl%{Right}
+    SC070 & b::send %shift%%ctrl%{Left}
+    SC070 & n::send %shift%%ctrl%{Down}
+    SC070 & p::send %shift%%ctrl%{Up}
+    SC070 & c::send %shift%^{c}
+    SC070 & l::send %shift%^{l}
+    SC070 & Space::return
+    SC070 & Backspace::send %shift%%ctrl%{Backspace}
 #if
+
+
+#include shortcuts.ahk
