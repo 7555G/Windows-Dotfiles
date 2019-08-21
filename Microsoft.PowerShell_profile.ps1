@@ -18,7 +18,8 @@ Remove-Item alias:cd
 Remove-Item alias:rm
 
 # aliases
-alias vim     'gvim'
+alias open    'start'
 alias ex      'explorer'
+alias vim     'gvim'
 alias which   'Get-Command -Syntax'
 alias killall 'Stop-Process -Force -Name'
