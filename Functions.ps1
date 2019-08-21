@@ -2,6 +2,34 @@
 # ${HOME}\dotfiles\Functions.ps1
 #
 
+# function to set more flexible aliases
+function alias {
+    [CmdletBinding()]
+    param(
+        [string][Parameter(Mandatory = $true, Position = 0)]
+        ${Name},
+        [string][Parameter(Mandatory = $true, Position = 1)]
+        ${Value}
+    )
+
+    ${SetFunction} =
+        "function global:${Name} {
+            [CmdletBinding()]
+            param(
+                [Parameter(ValueFromRemainingArguments)]
+                [string[]]`${Arguments}
+            )
+            
+            if (`${Arguments} -eq `$null) {
+                Invoke-Expression `"${value}`"
+            } else {
+                Invoke-Expression `"${value} `'`${Arguments}`'`"
+            }
+        }"
+
+    Invoke-Expression ${SetFunction}
+}
+
 # 'cd' that follows ".lnk" shortcuts
 Function cd {
     [CmdletBinding()]
@@ -38,7 +66,7 @@ function rm {
             InvokeVerb('Delete')
 
         if ($?) {
-            "${Target} moved to Recycle Bin"
+            "${Target} -> Recycle Bin"
         }
     }
 }
@@ -78,30 +106,14 @@ function ln {
     Invoke-Expression "New-Item @NewItemParameters ${Remaining}"
 }
 
-# function to set more flexible aliases
-function alias {
+function Convert-Hex {
     [CmdletBinding()]
     param(
-        [string][Parameter(Mandatory = $true, Position = 0)]
-        ${Name},
-        [string][Parameter(Mandatory = $true, Position = 1)]
-        ${Value}
+        [Parameter(Mandatory = $true, Position = 1)]
+        [string]${Value},
+        [Parameter(Mandatory = $true, Position = 2)]
+        [int]${Base}
     )
 
-    ${SetFunction} =
-        "function global:${Name} {
-            [CmdletBinding()]
-            param(
-                [Parameter(ValueFromRemainingArguments)]
-                [string[]]`${Arguments}
-            )
-            
-            if (`${Arguments} -eq `$null) {
-                Invoke-Expression `"${value}`"
-            } else {
-                Invoke-Expression `"${value} `'`${Arguments}`'`"
-            }
-        }"
-
-    Invoke-Expression ${SetFunction}
+    Return Invoke-Expression "[Convert]::ToInt32(0x${Value}, ${Base})"
 }
