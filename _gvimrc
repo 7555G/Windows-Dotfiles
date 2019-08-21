@@ -77,7 +77,7 @@ set wrap lbr                " wrap lines by word
 set formatoptions+=tawcroql " automatic line breaking
 set nojoinspaces            " don't insert 2 spaces after '.', '?' or '!'
 let colorcolumnposition=81  " position of column to mark text width
-"let &shell=''
+let &shell='pwsh -ExecutionPolicy ByPass -Command' " use powershell
 
 " allow folding
 set foldenable
