@@ -84,8 +84,9 @@ $LButton::RButton
 
 ; Readline-style Shortcuts
 #if !WinActive("ahk_class Vim")
-               && !WinExist("Steam")
-               && !WinActive("Guild Wars 2")
+    && !WinActive("ahk_class ConsoleWindowClass")
+    && !WinExist("Steam")
+    && !WinActive("Guild Wars 2")
     ~SC070::return
     SC070::LCtrl
     SC070 & h::send %shift%%ctrl%{Backspace}
@@ -101,6 +102,3 @@ $LButton::RButton
     SC070 & Space::return
     SC070 & Backspace::send %shift%%ctrl%{Backspace}
 #if
-
-
-#include shortcuts.ahk
