@@ -18,6 +18,9 @@ ${Links} = @{
 
     "${HOME}\vimfiles\colors" =
     "${HOME}\freebsd_dotfiles\vim\colors"
+
+    "${HOME}\bin\schemes\mushin.ini" =
+    "${DotfilesDir}\colorschemes\mushin.ini"
 }
 
 function Make-Symlinks(${Dotfiles}) {
