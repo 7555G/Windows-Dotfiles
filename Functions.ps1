@@ -106,6 +106,7 @@ function ln {
     Invoke-Expression "New-Item @NewItemParameters ${Remaining}"
 }
 
+# function to change base of hex strings
 function Convert-Hex {
     [CmdletBinding()]
     param(
@@ -116,4 +117,30 @@ function Convert-Hex {
     )
 
     Return Invoke-Expression "[Convert]::ToInt32(0x${Value}, ${Base})"
+}
+
+# function to convert hex colors to decimal from file
+function Convert-Scheme {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true, Position = 0)]
+        [string]${InputFile}
+    )
+
+    ${InputFile} = Resolve-Path ${InputFile}
+
+    Get-Content ${InputFile} | foreach {
+        if (${found} = $_ -match '(#\S+)') {
+            ${DecColor} = ''
+            ${HexColor} = $matches[1]
+            foreach ($i in 1..3) {
+                ${Hex} = -join ${HexColor}[(2*$i - 1), (2*$i)]
+                ${Dec} = Convert-Hex ${Hex} 10  |
+                         % { "{0:d3}" -f $_ }
+                ${DecColor} = "${DecColor}${Dec} "
+            }
+                         
+            "${DecColor}"
+        }
+    }
 }
