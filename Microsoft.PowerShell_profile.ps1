@@ -2,6 +2,12 @@
 # ${PROFILE}
 #
 
+# use emacs style readline shortcuts :)
+Import-Module PSReadLine
+Set-PSReadLineOption -EditMode Emacs
+Set-PSReadLineKeyHandler -Key Ctrl+d -Function DeleteChar
+Set-PSReadLineKeyHandler -Key Ctrl+Shift+a -Function SelectAll
+
 # source script with my functions
 . ~/dotfiles/Functions.ps1
 
@@ -16,10 +22,10 @@ function Prompt {"$(Get-Location | Split-Path -Leaf) "}
 Remove-Item alias:diff -Force
 Remove-Item alias:cd
 Remove-Item alias:rm
-
 # aliases
-alias open    'start'
-alias ex      'explorer'
-alias vim     'gvim'
-alias which   'Get-Command -Syntax'
-alias killall 'Stop-Process -Force -Name'
+Set-Alias open    start
+Set-Alias ex      explorer
+Set-Alias vim     gvim
+function  which     { Get-Command -Syntax $args }
+function  killall   { Stop-Process -Force -Name $args }
+function  New-Shell { Start-Process pwsh -ArgumentList "-NoLogo" }
