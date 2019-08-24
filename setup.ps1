@@ -2,8 +2,13 @@
 # ~/Dotfiles/setup.ps1
 #
 
+
 ${DotfilesDir} = "${PSScriptRoot}"
-${Links} = @{
+
+# source script with my functions
+. "${DotfilesDir}\Functions.ps1"
+
+${Targets} = @{
     "${HOME}\_gvimrc" =
     "${DotfilesDir}\_gvimrc"
 
@@ -16,37 +21,44 @@ ${Links} = @{
     "${HOME}\vimfiles\after" =
     "${HOME}\freebsd_dotfiles\vim\after"
 
-    "${HOME}\vimfiles\colors" =
+    "${HOME}\vimfiles" =
     "${HOME}\freebsd_dotfiles\vim\colors"
 
-    "${HOME}\bin\schemes\mushin.ini" =
-    "${DotfilesDir}\colorschemes\mushin.ini"
+    "${HOME}\bin\schemes" =
+    "${DotfilesDir}\colorschemes\*"
 }
 
 function Make-Symlinks(${Dotfiles}) {
-    foreach (${FilePath} in ${Links}.Keys) {
+    foreach (${Link} in ${Targets}.Keys) {
         # skip if the dotfile is not found
-        if (!(Test-Path ${Links}[${FilePath}])) {
+        if (!(Test-Path ${Targets}[${Link}])) {
             "`r`n!! Skipped:"
-            "$( ${Links}[${FilePath}] )"
+            "$( ${Targets}[${Link}] )"
             continue
         }
 
-        # replacement warnign
-        if (Test-Path ${FilePath}) {
+        ${LinkParent} = Split-Path ${Link} -Parent
+        if (Test-Path ${Link}) {
+            # show replacement warning if needed
             "`r`n!! Replacing existing symlink:"
+        } elseif (!(Test-Path ${LinkParent})) {
+            # create parent directory if needed
+            mkdir ${LinkParent} > $null
+            "Created directory: ${LinkParent} )"
         }
 
         # make symlink
-        ${NewItemParameters} = @{
-            ItemType = 'SymbolicLink'
-            Path = Split-Path ${FilePath} -Parent 
-            Name = Split-Path ${FilePath} -Leaf
-            Value = ${Links}[${FilePath}]
-            Force = $true
-        }
+        #${NewItemParameters} = @{
+        #    ItemType = 'SymbolicLink'
+        #    Path = Split-Path ${Link} -Parent 
+        #    Name = Split-Path ${Link} -Leaf
+        #    Value = ${Targets}[${Link}]
+        #    Force = $true
+        #}
+        #
+        #New-Item @NewItemParameters
 
-        New-Item @NewItemParameters
+        ln SymbolicLink ${Targets}[${Link}] ${Link} -Force
     }
 }
 
