@@ -7,8 +7,8 @@ set nocompatible " be iMproved, required
 filetype off     " required
 
 " set the runtime path to include Vundle and initialize
-set rtp+=$HOME/.vim/bundle/Vundle.vim/
-call vundle#begin('$HOME/.vim/bundle/')
+set rtp+=$HOME/vimfiles/bundle/Vundle.vim/
+call vundle#begin('$HOME/vimfiles/bundle/')
 
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
@@ -34,8 +34,8 @@ filetype plugin indent on
 
 " saving settings
 set updatetime=750
-set undofile             " maintain undo file...
-set undodir=~/.vim/undo/ " in ~/.vim/undo/
+set undofile                     " maintain undo file...
+set undodir=$HOME/vimfiles/undo/ " in ~/vimfiles/undo/
 set noswapfile
 set nobackup
 set nowb
@@ -47,9 +47,8 @@ colorscheme sunyata
 
 " set encodings and line ending formats
 set gfs=fixedgr
-set fileencodings=ucs-bom,utf-8,cp1253 " encodings to be tried when
-set fileencodings+=default,latin1      " starting to edit an existing file
-set encoding=utf-8                     " encoding displayed inside vim
+set fileencodings=ucs-bom,utf-8,cp1253,default,latin1 " tried on open
+set encoding=utf-8           " encoding displayed inside vim
 set fileformats=dos,unix,mac " format order to be tried on a new buffer
 
 " behavior
@@ -201,12 +200,10 @@ augroup vimrc
       \    colorcolumnposition - b:gutterwidth - &numberwidth*&number
     autocmd BufWinEnter,BufRead,BufWrite ?* silent! set fileencoding=utf-8
     autocmd BufWinEnter,BufRead,BufWrite *.c  set cindent
-    autocmd BufWinEnter,BufRead,BufWrite *.py let python_highlight_all=1
     autocmd BufWinEnter,BufRead,BufWrite *.py :Python3Syntax 
     autocmd BufWinEnter,BufRead,BufWrite *.tex
         \ set spell spelllang=en_us,el " spell check only .tex files
 augroup END
-
 
 " Windows only
 set guioptions= " no gui
@@ -215,4 +212,3 @@ set linespace=1
 set guifont=Fixedsys:h12
 "set linespace=4
 "set guifont=Terminal:h9
-set enc=utf8
