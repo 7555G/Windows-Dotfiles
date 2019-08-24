@@ -3,7 +3,7 @@
 #
 
 # use emacs style readline shortcuts :)
-Import-Module PSReadLine
+if (!(Get-Module PSReadLine)) { Import-Module PSReadLine }
 Set-PSReadLineOption -EditMode Emacs
 Set-PSReadLineKeyHandler -Key Tab          -Function TabCompleteNext
 Set-PSReadLineKeyHandler -Key Shift+Tab    -Function TabCompletePrevious
