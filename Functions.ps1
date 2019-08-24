@@ -78,32 +78,34 @@ function ln {
         [Parameter(Mandatory = $true, Position = 0)]
         [string]${ItemType},
         [Parameter(Mandatory = $true, Position = 1)]
-        [string]${Target},
+        [string]${Targets},
         [Parameter(Mandatory = $true, Position = 2)]
         [string]${Link},
         [Parameter(Position = 3, ValueFromRemainingArguments)]
-        [string[]]${Remaining}
+        [string[]]${RemainingArgs}
     )
 
-    # check the link is a directory or file
-    if (Test-Path -Path ${Link} -PathType Container) {
-        ${LinkPath} = Resolve-Path ${Link}
-        ${LinkName} = Split-Path ${Target} -Leaf
-    } else {
-        ${LinkPath} = Resolve-Path $( Split-Path ${Link} -Parent )
-        ${LinkName} = Split-Path ${Link} -Leaf
-    }
-    ${Target} = Resolve-Path ${Target}
+    # make symblink for every target
+    foreach (${Target} in Resolve-Path ${Targets}) {
+        # check the link is a directory or file
+        if (Test-Path -Path ${Link} -PathType Container) {
+            ${LinkPath} = Resolve-Path ${Link}
+            ${LinkName} = Split-Path ${Target} -Leaf
+        } else {
+            ${LinkPath} = Resolve-Path $( Split-Path ${Link} -Parent )
+            ${LinkName} = Split-Path ${Link} -Leaf
+        }
 
-    ${NewItemParameters} = @{
-        ItemType = ${ItemType}
-        Path = ${LinkPath}
-        Name = ${LinkName}
-        Value = ${Target}
-    }
+        ${NewItemParameters} = @{
+            ItemType = ${ItemType}
+            Path = ${LinkPath}
+            Name = ${LinkName}
+            Value = ${Target}
+        }
 
-    #$NewItemParameters
-    Invoke-Expression "New-Item @NewItemParameters ${Remaining}"
+        #$NewItemParameters
+        Invoke-Expression "New-Item @NewItemParameters ${RemainingArgs}"
+    }
 }
 
 # function to change base of hex strings
