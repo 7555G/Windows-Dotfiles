@@ -3,6 +3,8 @@
 ;
 
 ; behavior
+#NoTrayIcon
+#SingleInstance force
 SetWinDelay, 0
 
 ; terminal
