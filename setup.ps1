@@ -18,11 +18,8 @@ ${Targets} = @{
     "${PROFILE}" =
     "${DotfilesDir}\Microsoft.PowerShell_profile.ps1"
 
-    "${HOME}\vimfiles\after" =
-    "${HOME}\freebsd_dotfiles\vim\after"
-
     "${HOME}\vimfiles" =
-    "${HOME}\freebsd_dotfiles\vim\colors"
+    "${HOME}\freebsd_dotfiles\vim\*"
 
     "${HOME}\bin\schemes" =
     "${DotfilesDir}\colorschemes\*"
