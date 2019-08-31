@@ -30,9 +30,9 @@ Remove-Item alias:diff -Force
 Remove-Item alias:cd
 Remove-Item alias:rm
 # aliases
-Set-Alias open    start
-Set-Alias ex      explorer
-#Set-Alias vim     gvim
+Set-Alias open      start
+Set-Alias ex        explorer
+Set-Alias vim       gvim
 function  which     { Get-Command -Syntax $args }
 function  killall   { Stop-Process -Force -Name $args }
 function  New-Shell { Start-Process pwsh -ArgumentList "-NoLogo" }
