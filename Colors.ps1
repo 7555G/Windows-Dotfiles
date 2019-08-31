@@ -4,21 +4,21 @@
 
 # token colors
 ${Colors} = @{
-    "ContinuationPrompt" = [ConsoleColor]::DarkYellow
+    "ContinuationPrompt" = [ConsoleColor]::DarkCyan
     "Default"            = [ConsoleColor]::Gray
     "Comment"            = [ConsoleColor]::DarkGray
-    "Keyword"            = [ConsoleColor]::DarkYellow
+    "Keyword"            = [ConsoleColor]::DarkCyan
     "String"             = [ConsoleColor]::Gray
-    "Operator"           = [ConsoleColor]::DarkYellow
-    "Variable"           = [ConsoleColor]::DarkRed
-    "Command"            = [ConsoleColor]::DarkYellow
+    "Operator"           = [ConsoleColor]::DarkCyan
+    "Variable"           = [ConsoleColor]::DarkBlue
+    "Command"            = [ConsoleColor]::DarkCyan
     "Parameter"          = [ConsoleColor]::Gray
     "Type"               = [ConsoleColor]::DarkGreen
     "Number"             = [ConsoleColor]::Gray
     "Member"             = [ConsoleColor]::Gray
-    "Emphasis"           = [ConsoleColor]::DarkCyan
-    "Error"              = [ConsoleColor]::DarkBlue
-    "Selection"          = [ConsoleColor]::DarkYellow
+    "Emphasis"           = [ConsoleColor]::DarkYellow
+    "Error"              = [ConsoleColor]::DarkRed
+    "Selection"          = [ConsoleColor]::DarkCyan
 }
 
 Set-PSReadlineOption -Colors ${Colors}
@@ -28,11 +28,11 @@ Set-PSReadlineOption -Colors ${Colors}
 #$host.ui.rawui.BackgroundColor            = [ConsoleColor]::Black
 #$Host.PrivateData.VerboseForegroundColor  = [ConsoleColor]::Gray
 #$Host.PrivateData.VerboseBackgroundColor  = [ConsoleColor]::Black
-$Host.PrivateData.ErrorForegroundColor    = [ConsoleColor]::DarkBlue
+$Host.PrivateData.ErrorForegroundColor    = [ConsoleColor]::DarkRed
 #$Host.PrivateData.ErrorBackgroundColor    = [ConsoleColor]::Black
-$Host.PrivateData.WarningForegroundColor  = [ConsoleColor]::DarkCyan
+$Host.PrivateData.WarningForegroundColor  = [ConsoleColor]::DarkYellow
 #$Host.PrivateData.WarningBackgroundColor  = [ConsoleColor]::Black
-$Host.PrivateData.DebugForegroundColor    = [ConsoleColor]::DarkRed
+$Host.PrivateData.DebugForegroundColor    = [ConsoleColor]::DarkBlue
 #$Host.PrivateData.DebugBackgroundColor    = [ConsoleColor]::Black
 $Host.PrivateData.ProgressForegroundColor = [ConsoleColor]::DarkGray
 $Host.PrivateData.ProgressBackgroundColor = [ConsoleColor]::White
