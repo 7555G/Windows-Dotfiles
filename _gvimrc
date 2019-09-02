@@ -25,6 +25,7 @@ Plugin 'keith/swift.vim'
 Plugin 'JuliaEditorSupport/julia-vim'
 Plugin 'PProvost/vim-ps1'
 Plugin 'neovimhaskell/haskell-vim'
+Plugin 'bitc/vim-hdevtools'
 
 "" plugins end here
 call vundle#end() " required

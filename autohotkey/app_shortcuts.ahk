@@ -8,10 +8,13 @@
 SetWinDelay, 0
 
 ; terminal
-*!^t::Run pwsh -NoLogo -WorkingDirectory ~
+*!^t::Run pwsh -NoLogo -WorkingDirectory %HOME%
+*+!^t::
+    Run pwsh -wd %HOME% -nop -w Hidden -c "Start-Process pwsh -v RunAs"
+    Return
 
 ; file manager
-*!^n::Run lf ~
+*!^n::Run lf %HOME%
 
 ; editor
 *!^e::Run gvim
