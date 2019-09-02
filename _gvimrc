@@ -171,8 +171,8 @@ let g:ale_cursor_detail=1 " show errors in  preveiew window
 let g:ale_echo_cursor=0   " don't show errors in status line
 let g:ale_echo_msg_format='%s [%linter%]'
 let g:ale_sign_column_always=1
-let g:ale_sign_error='⬤'
-let g:ale_sign_warning ='▲'
+let g:ale_sign_error='x'
+let g:ale_sign_warning ='!'
 
 " functions
 function! SetSignColumn(file_name, is_modifiable)
@@ -208,6 +208,7 @@ augroup END
 " Windows only
 set guioptions= " no gui
 set lines=24 columns=80
-set guifont=Fixedsys:h12
+set guifont=tewi:h11
+"set guifont=Fixedsys:h12
 "set linespace=4
 "set guifont=Terminal:h9
