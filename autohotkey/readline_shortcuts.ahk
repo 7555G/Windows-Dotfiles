@@ -6,7 +6,7 @@
 ; behavior
 #NoTrayIcon
 #SingleInstance force
-SetWinDelay, 0
+SetWinDelay 0
 
 
 ; Store modifiers' state
@@ -64,8 +64,8 @@ return
 
 
 ; macOS-like context click
-$RButton::LButton
-$LButton::RButton
+;$RButton::LButton
+;$LButton::RButton
 ;Ctrl & LButton::send {RButton}
 ;Ctrl & RButton::send {RButton}
 ;Ctrl & WheelUp::

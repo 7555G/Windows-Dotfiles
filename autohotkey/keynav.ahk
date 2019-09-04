@@ -6,7 +6,8 @@
 
 #NoTrayIcon
 #SingleInstance force
-SetWinDelay, 0
+SetWinDelay 0
+
 
 ; start
 $^;::start()

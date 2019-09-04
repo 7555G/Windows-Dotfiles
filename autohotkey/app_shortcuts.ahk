@@ -5,16 +5,18 @@
 ; behavior
 #NoTrayIcon
 #SingleInstance force
-SetWinDelay, 0
+SetWinDelay 0
+SetWorkingDir %USERPROFILE%
+
 
 ; terminal
-*!^t::Run pwsh -NoLogo -WorkingDirectory %HOME%
+*!^t::Run pwsh -NoLogo
 *+!^t::
-    Run pwsh -wd %HOME% -nop -w Hidden -c "Start-Process pwsh -v RunAs"
+    Run pwsh -nop -w H -c "Start-Process pwsh -v RunAs"
     Return
 
 ; file manager
-*!^n::Run lf %HOME%
+*!^n::Run lf
 
 ; editor
 *!^e::Run gvim
