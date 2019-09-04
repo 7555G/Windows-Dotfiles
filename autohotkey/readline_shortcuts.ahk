@@ -68,12 +68,12 @@ return
 ;$LButton::RButton
 ;Ctrl & LButton::send {RButton}
 ;Ctrl & RButton::send {RButton}
-;Ctrl & WheelUp::
-;    sleep 1000
-;return
-;Ctrl & WheelDown::
-;    sleep 1000
-;return
+Ctrl & WheelUp::
+    sleep 1000
+return
+Ctrl & WheelDown::
+    sleep 1000
+return
 
 
 ; Audio/Media control
