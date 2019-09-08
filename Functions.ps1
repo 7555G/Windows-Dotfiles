@@ -2,38 +2,41 @@
 # ${HOME}\dotfiles\Functions.ps1
 #
 
-## function to set more flexible aliases
-#function alias {
-#    [CmdletBinding()]
-#    param(
-#        [string][Parameter(Mandatory = $true, Position = 0)]
-#        ${Name},
-#        [string][Parameter(Mandatory = $true, Position = 1)]
-#        ${Value}
-#    )
-#
-#    ${SetFunction} =
-#        "function global:${Name} {
-#            [CmdletBinding()]
-#            param(
-#                [Parameter(ValueFromRemainingArguments)]
-#                [string[]]`${Arguments}
-#            )
-#            
-#            if (`${Arguments} -eq `$null) {
-#                Invoke-Expression `"${value}`"
-#            } else {
-#                Invoke-Expression `"${value} `'`${Arguments}`'`"
-#            }
-#        }"
-#
-#    Invoke-Expression ${SetFunction}
-#}
+# function to set more flexible aliases
+function alias {
+    [CmdletBinding()]
+    param(
+        [string][Parameter(Mandatory = $true, Position = 0)]
+        ${Name},
+        [string][Parameter(Mandatory = $true, Position = 1)]
+        ${Value}
+    )
+
+    ${SetFunction} =
+        "function global:${Name} {
+            [CmdletBinding()]
+            param(
+                [Parameter(ValueFromRemainingArguments)]
+                [string[]]`${Arguments}
+            )
+
+            if (`${Arguments} -eq `$null) {
+                Invoke-Expression `"${value}`"
+            } else {
+                Invoke-Expression `"${value} @Arguments`"
+            }
+        }"
+
+    Invoke-Expression ${SetFunction}
+}
 
 # 'cd' that follows ".lnk" shortcuts
 Function cd {
     [CmdletBinding()]
-    param([Parameter(Mandatory = $true)][string]${Target})
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]${Target}
+    )
 
     if (${Target}.EndsWith(".lnk")) {
         ${shell} = New-Object -com wscript.shell
