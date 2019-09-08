@@ -58,9 +58,22 @@ function rm {
         [Parameter(Mandatory = $true, ValueFromRemainingArguments)]
         [string[]]${Targets}
     )
-
     ${Targets} = Resolve-Path ${Targets}
     ${shell} = New-Object -ComObject 'Shell.Application'
+
+    ${Message} = 'Confirm'
+    ${Question} = 'Are you sure you want to move the following files ' +
+                  'to Recycle Bin?' + "`r`nFiles:`r`n" +
+                  "  $( ${Targets} -join "`r`n  " )"
+    ${Choices} = '&Yes', '&No'
+
+    ${Decision} =
+        $Host.UI.PromptForChoice(${Message}, ${Question}, ${Choices}, 1)
+
+    if (${Decision} -eq 1) {
+        "Cancelled"
+        break
+    }
 
     foreach (${Target} in ${Targets}) {
         ${shell}.
