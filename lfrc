@@ -15,6 +15,7 @@ cmd open   &open $( cmd /c echo %f% )
 cmd rename %mv -EA SilentlyContinue $( cmd /c echo %f% ).Replace("`"","")
 cmd delete !rm @( $( cmd /c echo %fx% ).Replace("`"","").Split(', ') )
 cmd q      quit
+cmd qq     quit; $pwsh -NoLogo -wd $( cmd /c echo %f% ).Replace("`"","")
 
 # key mappings
 map q
