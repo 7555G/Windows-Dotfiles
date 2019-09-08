@@ -9,20 +9,20 @@ ${DotfilesDir} = "${PSScriptRoot}"
 . "${DotfilesDir}\Functions.ps1"
 
 ${Targets} = @{
+    "${PROFILE}" =
+    "${DotfilesDir}\Profile.ps1"
+
     "${HOME}\_gvimrc" =
-    "${DotfilesDir}\_gvimrc"
+    "${DotfilesDir}\vimrc"
 
     "${HOME}\_vimrc" =
-    "${DotfilesDir}\_gvimrc"
-
-    "${PROFILE}" =
-    "${DotfilesDir}\Microsoft.PowerShell_profile.ps1"
+    "${DotfilesDir}\vimrc"
 
     "${HOME}\vimfiles" =
     "${HOME}\freebsd_dotfiles\vim\*"
 
-    "${HOME}\bin\schemes" =
-    "${DotfilesDir}\colorschemes\*"
+    "${HOME}\AppData\Local\lf\lfrc" =
+    "${DotfilesDir}\lfrc"
 }
 
 function Make-Symlinks(${Dotfiles}) {
