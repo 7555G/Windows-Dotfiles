@@ -33,6 +33,6 @@ Remove-Item alias:rm
 Set-Alias open      start
 Set-Alias ex        explorer
 Set-Alias vim       gvim
-function  which     { Get-Command -Syntax $args }
-function  killall   { Stop-Process -Force -Name $args }
-function  New-Shell { Start-Process pwsh -ArgumentList "-NoLogo" }
+alias     which     "Get-Command -Syntax"
+alias     killkll   "Stop-Process -Force -Name"
+alias     New-Shell "Start-Process pwsh -ArgumentList '-NoLogo'"
