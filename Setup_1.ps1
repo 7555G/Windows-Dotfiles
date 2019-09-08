@@ -1,7 +1,6 @@
 #
-# ~/Dotfiles/setup.ps1
+# ${HOME}\Dotfiles\Setup.ps1
 #
-
 
 ${DotfilesDir} = "${PSScriptRoot}"
 
