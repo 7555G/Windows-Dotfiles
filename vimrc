@@ -79,9 +79,9 @@ set wrap lbr                " wrap lines by word
 set formatoptions+=tawcroql " automatic line breaking
 set nojoinspaces            " don't insert 2 spaces after '.', '?' or '!'
 let colorcolumnposition=81  " position of column to mark text width
-set shell=pwsh.exe
-let &shellcmdflag = '-NoLogo -Command'
-set shellslash
+"set shell=pwsh.exe
+"let &shellcmdflag = '-NoLogo -Command'
+"set shellslash
 
 " allow folding
 set foldenable
@@ -215,3 +215,4 @@ set guifont=tewi:h11
 "set guifont=Fixedsys:h12
 "set linespace=4
 "set guifont=Terminal:h9
+set guifont=Cascadia\ Code:h11

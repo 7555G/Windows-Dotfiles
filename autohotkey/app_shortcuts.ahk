@@ -12,14 +12,14 @@ SetWorkingDir %USERPROFILE%
 ; terminal
 *!^t::Run pwsh -NoLogo
 *+!^t::
-    Run pwsh -nop -w H -c "Start-Process pwsh -v RunAs"
+    Run pwsh -nol -nop -w H -c "Start-Process pwsh -v RunAs"
     Return
 
 ; file manager
-*!^n::Run lf
+*!^n::Run lf.exe
 
 ; editor
-*!^e::Run gvim
+*!^e::Run gvim.exe
 
 ; music
 *!^m::Run "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\iTunes"
