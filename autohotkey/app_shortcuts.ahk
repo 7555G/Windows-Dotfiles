@@ -19,7 +19,7 @@ SetWorkingDir %USERPROFILE%
 *!^n::Run lf.exe
 
 ; editor
-*!^e::Run gvim.exe
+*!^e::Run gvim
 
 ; music
 *!^m::Run "C:\ProgramData\Microsoft\Windows\Start Menu\Programs\iTunes"
