@@ -33,7 +33,17 @@ function Make-Symlinks(${Dotfiles}) {
             continue
         }
 
-        ${LinkParent} = Split-Path ${Link} -Parent
+        # deterimne parent directory
+        if ($( Resolve-Path ${Targets}[${Link}] ).Count -gt 1) {
+            ${LinkParent} = ${Link}
+        } else {
+            if (Test-Path -Path ${Link} -PathType Container) {
+                ${LinkPaRent} = Resolve-Path ${Link}
+            } else {
+                ${LinkPath} = Resolve-Path $( Split-Path ${Link} -Parent )
+            }
+        }
+
         if (Test-Path ${Link}) {
             # show replacement warning if needed
             "`r`n!! Replacing existing symlink:"
