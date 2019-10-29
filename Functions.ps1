@@ -107,7 +107,7 @@ function ln {
         throw "The target directory does not exist."
     }
 
-    # make symblink for every target
+    # make symlink for every target
     foreach (${Target} in Resolve-Path ${Targets}) {
         # check the link is a directory or file
         if (Test-Path -Path ${Link} -PathType Container) {
