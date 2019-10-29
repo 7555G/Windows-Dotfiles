@@ -101,6 +101,12 @@ function ln {
         [string[]]${RemainingArgs}
     )
 
+    # check if target is appropriate
+    if (($( Resolve-Path ${Targets} ).Count -gt 1) -and 
+       !(Test-Path ${Link})) {
+        throw "The target directory does not exist."
+    }
+
     # make symblink for every target
     foreach (${Target} in Resolve-Path ${Targets}) {
         # check the link is a directory or file
