@@ -79,9 +79,9 @@ set wrap lbr                " wrap lines by word
 set formatoptions+=tawcroql " automatic line breaking
 set nojoinspaces            " don't insert 2 spaces after '.', '?' or '!'
 let colorcolumnposition=81  " position of column to mark text width
-"set shell=pwsh.exe
-"let &shellcmdflag = '-NoLogo -Command'
-"set shellslash
+set shell=pwsh.exe
+let &shellcmdflag = '-NoLogo -Command'
+set shellslash
 
 " allow folding
 set foldenable
@@ -166,7 +166,7 @@ let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_TreatMacViewerAsUNIX=1
 let g:Tex_ExecuteUNIXViewerInForeground=1
-let g:vimtex_view_general_viewer='evince.exe'
+let g:vimtex_view_general_viewer='SumatraPDF'
 let g:tex_comment_nospell=1
 
 " ALE
@@ -215,4 +215,5 @@ set guifont=tewi:h11
 "set guifont=Fixedsys:h12
 "set linespace=4
 "set guifont=Terminal:h9
-set guifont=Cascadia\ Code:h11
+set guifont=SF_Mono:h10:W600
+set linespace=1

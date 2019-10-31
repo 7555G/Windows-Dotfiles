@@ -11,12 +11,14 @@
 # source script with my shortcuts
 . ~/dotfiles/Shortcuts.ps1
 
-# chocolatey profile
-${ChocolateyProfile} =
+# import modules
+${ChocolateyProfile} = # chocolatey profile
     "${env:ChocolateyInstall}\helpers\chocolateyProfile.psm1"
 if (Test-Path ${ChocolateyProfile}) {
   Import-Module ${ChocolateyProfile}
 }
+
+Import-Module Get-ChildItemColor
 
 # set $PATH
 $env:PATH += ";${HOME}\bin"
@@ -29,6 +31,7 @@ function Prompt {"$( Get-Location | Split-Path -Leaf ) "}
 Remove-Item alias:diff -Force
 Remove-Item alias:cd
 Remove-Item alias:rm
+
 # aliases
 Set-Alias open      start
 Set-Alias ex        explorer
