@@ -18,7 +18,11 @@ if (Test-Path ${ChocolateyProfile}) {
   Import-Module ${ChocolateyProfile}
 }
 
-Import-Module Get-ChildItemColor
+if (Get-InstalledModule Get-ChildItemColor) {
+    Import-Module Get-ChildItemColor
+} else {
+    Install-Module -AllowClobber Get-ChildItemColor
+}
 
 # set $PATH
 $env:PATH += ";${HOME}\bin"

@@ -76,10 +76,10 @@ Ctrl & WheelDown::
 return
 
 
-; Audio/Media control
-*PrintScreen::send {Volume_Mute}
-*ScrollLock::send {Volume_Down}{Volume_Down}
-*Pause::send {Volume_Up}{Volume_Up}
+;; Audio/Media control
+;*PrintScreen::send {Volume_Mute}
+;*ScrollLock::send {Volume_Down}{Volume_Down}
+;*Pause::send {Volume_Up}{Volume_Up}
 
 
 ; Readline-style Shortcuts
